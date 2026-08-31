@@ -3,112 +3,273 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TuriSafe</title>
+  <title>TuriSafe — Viaja preparado</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body>
 
-  <div id="alert-banner" class="hidden"></div>
+  <div id="alert-banner" class="hidden" role="alert"></div>
 
+  <!-- ── Header ──────────────────────────────── -->
   <header>
-    <h1>TuriSafe</h1>
-    <div class="controls">
-      <label for="month-selector">Mes:</label>
-      <select id="month-selector">
-        <option value="enero">Enero</option>
-        <option value="febrero">Febrero</option>
-        <option value="marzo">Marzo</option>
-        <option value="abril">Abril</option>
-        <option value="mayo">Mayo</option>
-        <option value="junio">Junio</option>
-        <option value="julio">Julio</option>
-        <option value="agosto">Agosto</option>
-        <option value="septiembre">Septiembre</option>
-        <option value="octubre">Octubre</option>
-        <option value="noviembre">Noviembre</option>
-        <option value="diciembre">Diciembre</option>
-      </select>
-
-      <label class="toggle-label">
-        <input type="checkbox" id="realtime-toggle" />
-        Ver estado actual
-      </label>
+    <div class="header-brand">
+      <img src="assets/images/logo.png" alt="" class="header-logo" onerror="this.style.display='none'" />
+      <span class="brand-name">TuriSafe</span>
     </div>
+    <nav class="header-nav">
+      <a href="#features">C&oacute;mo funciona</a>
+      <a href="#map-section" class="nav-cta">Explorar destinos</a>
+    </nav>
   </header>
 
-  <main>
-    <div id="map"></div>
+  <!-- ── Hero ────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="deco-circle deco-1"></div>
+      <div class="deco-circle deco-2"></div>
+      <div class="deco-circle deco-3"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Tu compa&ntilde;ero de viaje inteligente</p>
+      <h1 class="hero-title">Viaja preparado.<br />Act&uacute;a cuando importa.</h1>
+      <p class="hero-sub">
+        Selecciona tu destino, consulta qu&eacute; riesgos hay seg&uacute;n la &eacute;poca del a&ntilde;o,
+        ve el estado meteorol&oacute;gico actual y, si la zona est&aacute; en alerta, ayuda a los afectados
+        con materiales de primera necesidad.
+      </p>
+      <div class="hero-actions">
+        <a href="#map-section" class="btn-hero-primary">Explorar destinos</a>
+        <a href="#features" class="btn-hero-ghost">C&oacute;mo funciona</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>4</strong><span>ciudades piloto</span></div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat"><strong>12</strong><span>meses de datos</span></div>
+        <div class="hero-divider"></div>
+        <div class="hero-stat"><strong>3</strong><span>niveles de alerta</span></div>
+      </div>
+    </div>
+  </section>
 
-    <section id="city-panel" class="hidden">
-      <h2 id="city-name"></h2>
+  <!-- ── Features ────────────────────────────── -->
+  <section id="features">
+    <div class="section-wrap">
+      <p class="section-eyebrow">Para qu&eacute; sirve</p>
+      <h2 class="section-title">Todo lo que necesitas en un solo lugar</h2>
+      <div class="features-grid">
 
-      <div class="status-badge">
-        <span id="city-status"></span>
-        <p id="city-status-reason"></p>
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--plan">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3>Informaci&oacute;n por destino y mes</h3>
+          <p>Selecciona ciudad y mes de viaje. Obtendr&aacute;s los riesgos, recomendaciones y el kit de equipaje espec&iacute;ficos para esa &eacute;poca. Funciona sin conexi&oacute;n.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--weather">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="3"/><path d="M12 2v1M12 13v1M4.22 4.22l.7.7M18.36 4.22l.7.7M2 12h1M21 12h1"/>
+              <path d="M7 17a4 4 0 010-8h.5A5.5 5.5 0 0118 13.5 2.5 2.5 0 0117 18H7z"/>
+            </svg>
+          </div>
+          <h3>Estado meteorol&oacute;gico actual</h3>
+          <p>Activa el modo tiempo real y la app consulta Open-Meteo con las coordenadas de tu ciudad. Ver&aacute;s temperatura, lluvia, viento y el nivel de alerta calculado.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon feature-icon--help">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </div>
+          <h3>Ayuda material en alerta</h3>
+          <p>Cuando el estado es alerta roja, se activa un formulario para ofrecer ropa, agua, comida o herramientas. El env&iacute;o llega directamente al equipo de coordinaci&oacute;n.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Map section ──────────────────────────── -->
+  <section id="map-section">
+    <div class="section-wrap">
+      <div class="map-section-top">
+        <div class="map-section-titles">
+          <p class="section-eyebrow">Destinos piloto</p>
+          <h2 class="section-title">Explora el mapa</h2>
+          <p class="map-hint">Haz clic en una ciudad para ver su perfil completo.</p>
+        </div>
+        <div class="map-controls">
+          <div class="control-group">
+            <label for="month-selector">Mes</label>
+            <select id="month-selector">
+              <option value="enero">Enero</option>
+              <option value="febrero">Febrero</option>
+              <option value="marzo">Marzo</option>
+              <option value="abril">Abril</option>
+              <option value="mayo">Mayo</option>
+              <option value="junio">Junio</option>
+              <option value="julio">Julio</option>
+              <option value="agosto">Agosto</option>
+              <option value="septiembre">Septiembre</option>
+              <option value="octubre">Octubre</option>
+              <option value="noviembre">Noviembre</option>
+              <option value="diciembre">Diciembre</option>
+            </select>
+          </div>
+          <label class="toggle-label">
+            <input type="checkbox" id="realtime-toggle" />
+            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            <span>Estado actual</span>
+          </label>
+        </div>
       </div>
 
-      <div id="climate-context"></div>
+      <!-- Barra de búsqueda de destinos -->
+      <div class="map-search-bar">
+        <div class="search-input-wrap">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="city-search" placeholder="Busca un destino... ej: Madrid" autocomplete="off" />
+          <button type="button" id="search-clear" class="search-clear hidden" aria-label="Limpiar b&uacute;squeda">&times;</button>
+        </div>
+        <ul id="search-results" class="search-results hidden" role="listbox"></ul>
+      </div>
 
-      <div class="kit-section">
+      <div id="map"></div>
+
+      <div class="city-chips">
+        <span class="chips-label">Acceso r&aacute;pido:</span>
+        <button class="city-chip" data-city="madrid">Madrid</button>
+        <button class="city-chip" data-city="barcelona">Barcelona</button>
+        <button class="city-chip" data-city="valencia">Valencia</button>
+        <button class="city-chip" data-city="sevilla">Sevilla</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── City panel (drawer) ──────────────────── -->
+  <div id="city-backdrop" aria-hidden="true"></div>
+
+  <section id="city-panel" class="hidden" aria-label="Perfil del destino">
+    <button id="city-panel-close" aria-label="Cerrar">&times;</button>
+
+    <div id="city-header-img" class="city-header-img">
+      <div class="city-header-overlay">
+        <h2 id="city-name"></h2>
+        <div class="status-badge status-normal">
+          <span class="status-dot-inner"></span>
+          <span id="city-status">NORMAL</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-body">
+      <p id="city-status-reason" class="status-reason"></p>
+
+      <div id="weather-loading" class="weather-loading hidden">
+        <span class="spinner"></span>
+        <span>Obteniendo clima actual...</span>
+      </div>
+
+      <div id="climate-context" class="climate-context"></div>
+
+      <div class="section-block">
         <h3>Kit del viajero</h3>
         <ul id="traveler-kit"></ul>
       </div>
 
-      <div id="emergency-contacts">
+      <div id="emergency-contacts" class="section-block">
         <h3>Contactos de emergencia</h3>
-        <p>Emergencias: <span class="contact-emergencias"></span></p>
-        <p>Policía: <span class="contact-policia"></span></p>
-        <p>Bomberos: <span class="contact-bomberos"></span></p>
+        <div class="contact-grid">
+          <a id="contact-emergencias" class="contact-card contact-emergency" href="tel:112">
+            <span class="contact-label">Emergencias</span>
+            <span class="contact-number">112</span>
+          </a>
+          <a id="contact-policia" class="contact-card contact-police" href="tel:091">
+            <span class="contact-label">Policia</span>
+            <span class="contact-number">091</span>
+          </a>
+          <a id="contact-bomberos" class="contact-card contact-fire" href="tel:080">
+            <span class="contact-label">Bomberos</span>
+            <span class="contact-number">080</span>
+          </a>
+        </div>
       </div>
 
-      <div id="donation-section">
-        <h3>Donaciones</h3>
-        <form id="donation-form">
-          <label for="don-nombre">Nombre:</label>
-          <input type="text" id="don-nombre" name="nombre" required />
+      <div class="section-block">
+        <button type="button" id="demo-alert-btn">Simular alerta (10 s)</button>
+      </div>
 
-          <label for="don-telefono">Teléfono:</label>
-          <input type="tel" id="don-telefono" name="telefono" />
-
+      <div id="donation-section" class="section-block">
+        <h3>Ayuda a los afectados</h3>
+        <p id="donation-blocked-msg" class="donation-blocked-msg">
+          Zona segura. Gracias por tu intenci&oacute;n de ayudar.
+        </p>
+        <form id="donation-form" class="hidden">
+          <div class="field-group">
+            <label for="don-nombre">Nombre *</label>
+            <input type="text" id="don-nombre" name="nombre" required placeholder="Nombre completo" />
+          </div>
+          <div class="field-group">
+            <label for="don-telefono">Tel&eacute;fono *</label>
+            <input type="tel" id="don-telefono" name="telefono" required placeholder="600 000 000" />
+          </div>
           <fieldset>
-            <legend>Categorías de donación</legend>
-            <label><input type="checkbox" name="categorias" value="alimentos" /> Alimentos</label>
-            <label><input type="checkbox" name="categorias" value="ropa" /> Ropa</label>
-            <label><input type="checkbox" name="categorias" value="medicamentos" /> Medicamentos</label>
-            <label><input type="checkbox" name="categorias" value="dinero" /> Dinero</label>
+            <legend>Material a ofrecer</legend>
+            <label><input type="checkbox" name="categorias" value="ropa_abrigo" /> Ropa y abrigo</label>
+            <label><input type="checkbox" name="categorias" value="parafarmacia" /> Parafarmacia / Bot&iacute;qu&iacute;n</label>
+            <label><input type="checkbox" name="categorias" value="comida" /> Comida no perecedera</label>
+            <label><input type="checkbox" name="categorias" value="agua" /> Agua embotellada</label>
+            <label><input type="checkbox" name="categorias" value="herramientas" /> Herramientas / Material de limpieza</label>
           </fieldset>
-
-          <label for="don-ubicacion">Ubicación:</label>
-          <input type="text" id="don-ubicacion" name="ubicacion" />
-
-          <button type="submit">Enviar donación</button>
+          <div class="field-group">
+            <label for="don-ubicacion">Ubicaci&oacute;n de recogida *</label>
+            <input type="text" id="don-ubicacion" name="ubicacion" required placeholder="Direcci&oacute;n o punto de referencia" />
+          </div>
+          <button type="submit" class="btn-primary">Enviar ofrecimiento</button>
         </form>
+        <div id="donation-success" class="donation-success hidden">
+          <p>Tu ofrecimiento ha sido registrado. Muchas gracias por tu ayuda.</p>
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <button id="report-button" aria-label="Reportar incidente">+</button>
+  <!-- ── Report button + modal ─────────────────── -->
+  <button id="report-button" aria-label="Reportar incidencia">+</button>
 
-  <div id="report-modal" class="hidden">
+  <div id="report-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="report-modal-title">
     <div class="modal-overlay">
       <div class="modal-content">
-        <h2>Reportar incidente</h2>
+        <h2 id="report-modal-title">Reportar incidencia</h2>
         <form id="report-form">
-          <label for="report-type">Tipo de incidente:</label>
-          <select id="report-type" name="tipo">
-            <option value="inundacion">Inundación</option>
-            <option value="incendio">Incendio</option>
-            <option value="sismo">Sismo</option>
-            <option value="otro">Otro</option>
-          </select>
-
-          <label for="report-description">Descripción:</label>
-          <textarea id="report-description" name="descripcion" rows="4"></textarea>
-
-          <button type="submit">Enviar reporte</button>
-          <button type="button" id="report-modal-close">Cancelar</button>
+          <div class="field-group">
+            <label for="report-type">Tipo de incidencia *</label>
+            <select id="report-type" name="tipo" required>
+              <option value="">Selecciona...</option>
+              <option value="carretera_cortada">Carretera cortada</option>
+              <option value="fuente_sin_agua">Fuente sin agua</option>
+              <option value="inundacion_leve">Inundaci&oacute;n leve</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="report-description">Descripci&oacute;n</label>
+            <textarea id="report-description" name="descripcion" rows="3"
+              placeholder="Describe lo que has visto..."></textarea>
+          </div>
+          <div class="modal-actions">
+            <button type="submit" class="btn-primary">Enviar reporte</button>
+            <button type="button" id="report-modal-close" class="btn-secondary">Cancelar</button>
+          </div>
         </form>
       </div>
     </div>
@@ -123,5 +284,6 @@
   <script type="module" src="js/alerts.js"></script>
   <script type="module" src="js/reports.js"></script>
   <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/demo.js"></script>
 </body>
 </html>
