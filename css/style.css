@@ -1,0 +1,351 @@
+:root {
+  --color-normal: #22c55e;
+  --color-precaucion: #f59e0b;
+  --color-alerta: #ef4444;
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text: #1e293b;
+  --radius: 8px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none !important;
+}
+
+header {
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.controls label {
+  font-size: 0.9rem;
+}
+
+#month-selector {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+#map {
+  height: 400px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: #e2e8f0;
+}
+
+#city-panel {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 120px);
+}
+
+#city-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.status-badge {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  border-left: 4px solid transparent;
+}
+
+#city-status {
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+#city-status-reason {
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  color: #64748b;
+}
+
+.status-normal {
+  background: #f0fdf4;
+  border-color: var(--color-normal);
+  color: #166534;
+}
+
+.status-precaucion {
+  background: #fffbeb;
+  border-color: var(--color-precaucion);
+  color: #92400e;
+}
+
+.status-alerta {
+  background: #fef2f2;
+  border-color: var(--color-alerta);
+  color: #991b1b;
+}
+
+#climate-context {
+  font-size: 0.875rem;
+  color: #475569;
+  padding: 0.5rem;
+  background: #f1f5f9;
+  border-radius: var(--radius);
+}
+
+.kit-section h3,
+#emergency-contacts h3,
+#donation-section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+#traveler-kit {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+#traveler-kit li::before {
+  content: "✓ ";
+  color: var(--color-normal);
+  font-weight: 700;
+}
+
+#emergency-contacts {
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+#emergency-contacts p {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#donation-section {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 1rem;
+}
+
+#donation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+#donation-form label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+#donation-form input[type="text"],
+#donation-form input[type="tel"] {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+#donation-form fieldset {
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+}
+
+#donation-form fieldset legend {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0 0.25rem;
+}
+
+#donation-form fieldset label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 400;
+}
+
+#donation-form button[type="submit"] {
+  padding: 0.6rem;
+  background: var(--color-alerta);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+#donation-form button[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+#report-button {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-text);
+  color: #fff;
+  border: none;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 500;
+  transition: transform 0.2s;
+}
+
+#report-button:hover {
+  transform: scale(1.1);
+}
+
+#report-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-content {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-content h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+#report-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#report-form label {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+#report-form select,
+#report-form textarea {
+  width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-family: inherit;
+}
+
+#report-form button {
+  padding: 0.55rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#report-form button[type="submit"] {
+  background: var(--color-text);
+  color: #fff;
+}
+
+#report-modal-close {
+  background: #e2e8f0;
+  color: var(--color-text);
+}
+
+#alert-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3000;
+  background: var(--color-alerta);
+  color: #fff;
+  text-align: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}

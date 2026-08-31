@@ -1,0 +1,27 @@
+{
+  "ciudades": [
+    {
+      "id": "madrid",
+      "nombre": "Madrid",
+      "lat": 40.4168,
+      "lon": -3.7038,
+      "telefono_emergencias": "112",
+      "policia": "091",
+      "bomberos": "080",
+      "meses": {
+        "enero":      { "riesgos": [], "recomendaciones": [], "kit": [] },
+        "febrero":    { "riesgos": [], "recomendaciones": [], "kit": [] },
+        "marzo":      { "riesgos": [], "recomendaciones": [], "kit": [] },
+        "abril":      { "riesgos": [], "recomendaciones": [], "kit": [] },
+        "mayo":       { "riesgos": [], "recomendaciones": [], "kit": [] },
+        "junio":      { "riesgos": [], "recomendaciones": [], "kit": [] },
+        "julio":      { "riesgos": [], "recomendaciones": [], "kit": [] },
+        "agosto":     { "riesgos": [], "recomendaciones": [], "kit": [] },
+        "septiembre": { "riesgos": [], "recomendaciones": [], "kit": [] },
+        "octubre":    { "riesgos": [], "recomendaciones": [], "kit": [] },
+        "noviembre":  { "riesgos": [], "recomendaciones": [], "kit": [] },
+        "diciembre":  { "riesgos": [], "recomendaciones": [], "kit": [] }
+      }
+    }
+  ]
+}

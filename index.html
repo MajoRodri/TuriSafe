@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TuriSafe</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <div id="alert-banner" class="hidden"></div>
+
+  <header>
+    <h1>TuriSafe</h1>
+    <div class="controls">
+      <label for="month-selector">Mes:</label>
+      <select id="month-selector">
+        <option value="enero">Enero</option>
+        <option value="febrero">Febrero</option>
+        <option value="marzo">Marzo</option>
+        <option value="abril">Abril</option>
+        <option value="mayo">Mayo</option>
+        <option value="junio">Junio</option>
+        <option value="julio">Julio</option>
+        <option value="agosto">Agosto</option>
+        <option value="septiembre">Septiembre</option>
+        <option value="octubre">Octubre</option>
+        <option value="noviembre">Noviembre</option>
+        <option value="diciembre">Diciembre</option>
+      </select>
+
+      <label class="toggle-label">
+        <input type="checkbox" id="realtime-toggle" />
+        Ver estado actual
+      </label>
+    </div>
+  </header>
+
+  <main>
+    <div id="map"></div>
+
+    <section id="city-panel" class="hidden">
+      <h2 id="city-name"></h2>
+
+      <div class="status-badge">
+        <span id="city-status"></span>
+        <p id="city-status-reason"></p>
+      </div>
+
+      <div id="climate-context"></div>
+
+      <div class="kit-section">
+        <h3>Kit del viajero</h3>
+        <ul id="traveler-kit"></ul>
+      </div>
+
+      <div id="emergency-contacts">
+        <h3>Contactos de emergencia</h3>
+        <p>Emergencias: <span class="contact-emergencias"></span></p>
+        <p>Policía: <span class="contact-policia"></span></p>
+        <p>Bomberos: <span class="contact-bomberos"></span></p>
+      </div>
+
+      <div id="donation-section">
+        <h3>Donaciones</h3>
+        <form id="donation-form">
+          <label for="don-nombre">Nombre:</label>
+          <input type="text" id="don-nombre" name="nombre" required />
+
+          <label for="don-telefono">Teléfono:</label>
+          <input type="tel" id="don-telefono" name="telefono" />
+
+          <fieldset>
+            <legend>Categorías de donación</legend>
+            <label><input type="checkbox" name="categorias" value="alimentos" /> Alimentos</label>
+            <label><input type="checkbox" name="categorias" value="ropa" /> Ropa</label>
+            <label><input type="checkbox" name="categorias" value="medicamentos" /> Medicamentos</label>
+            <label><input type="checkbox" name="categorias" value="dinero" /> Dinero</label>
+          </fieldset>
+
+          <label for="don-ubicacion">Ubicación:</label>
+          <input type="text" id="don-ubicacion" name="ubicacion" />
+
+          <button type="submit">Enviar donación</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <button id="report-button" aria-label="Reportar incidente">+</button>
+
+  <div id="report-modal" class="hidden">
+    <div class="modal-overlay">
+      <div class="modal-content">
+        <h2>Reportar incidente</h2>
+        <form id="report-form">
+          <label for="report-type">Tipo de incidente:</label>
+          <select id="report-type" name="tipo">
+            <option value="inundacion">Inundación</option>
+            <option value="incendio">Incendio</option>
+            <option value="sismo">Sismo</option>
+            <option value="otro">Otro</option>
+          </select>
+
+          <label for="report-description">Descripción:</label>
+          <textarea id="report-description" name="descripcion" rows="4"></textarea>
+
+          <button type="submit">Enviar reporte</button>
+          <button type="button" id="report-modal-close">Cancelar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="js/map.js"></script>
+  <script type="module" src="js/weather.js"></script>
+  <script type="module" src="js/risk.js"></script>
+  <script type="module" src="js/offline.js"></script>
+  <script type="module" src="js/donations.js"></script>
+  <script type="module" src="js/alerts.js"></script>
+  <script type="module" src="js/reports.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
