@@ -158,3 +158,54 @@ if (form) {
   // Empieza bloqueado hasta que main.js llame a setDonationState() con el estado real.
   setDonationState(currentStatus);
 }
+
+// --- Funciones auxiliares ---------------------------------------------------------------
+
+function validateDonation(data) {
+  if (!data.nombre || !data.nombre.trim()) {
+    return "Por favor completa todos los campos obligatorios.";
+  }
+  if (!data.ubicacion || !data.ubicacion.trim()) {
+    return "Por favor completa todos los campos obligatorios.";
+  }
+  if (!Array.isArray(data.categorias) || data.categorias.length === 0) {
+    return "Selecciona al menos una categoría de donación.";
+  }
+  return null;
+}
+
+function setSubmittingState(submitting) {
+  isSubmitting = submitting;
+  if (submitButton) {
+    submitButton.disabled = submitting;
+    submitButton.textContent = submitting ? "Enviando..." : "Enviar donación";
+  }
+}
+
+function showMessage(text, kind) {
+  if (!messageBox) return;
+  messageBox.textContent = text;
+  messageBox.dataset.kind = kind; // "info" | "blocked" | "error" | "success"
+}
+
+// --- Conexión del formulario (solo si existe en la página actual) -------------
+if (form) {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const categorias = formData.getAll("categorias");
+
+    submitDonation({
+      nombre: formData.get("nombre") || "",
+      telefono: formData.get("telefono") || "",
+      categorias,
+      ubicacion: formData.get("ubicacion") || "",
+    }).catch(() => {
+      // El error ya se mostró mediante showMessage(); no hay nada más que hacer aquí.
+    });
+  });
+
+  // Empieza bloqueado hasta que P5 llame a setDonationState() con el estado real.
+  setDonationState(currentStatus);
+}
