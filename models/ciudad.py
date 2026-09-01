@@ -3,7 +3,7 @@ from typing import Dict, List
 from pydantic import BaseModel, ConfigDict, Field
 
 
-class MesInfo(BaseModel):
+class MonthInfo(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     riesgos: List[str]
@@ -11,7 +11,7 @@ class MesInfo(BaseModel):
     kit: List[str]
 
 
-class Ciudad(BaseModel):
+class City(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     id: str
@@ -21,4 +21,4 @@ class Ciudad(BaseModel):
     telefono_emergencias: str
     policia: str
     bomberos: str
-    meses: Dict[str, MesInfo]
+    meses: Dict[str, MonthInfo]
