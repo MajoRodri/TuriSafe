@@ -1,6 +1,4 @@
 // --- Configuración -----------------------------------------------------
-// TODO: reemplazar con el endpoint real de Formspree desde tu panel.
-// Lo obtienes en https://formspree.io -> "New Form" -> copia la URL del endpoint.
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/mjyvyvoz";
 
 // --- Estado interno ------------------------------------------------------
