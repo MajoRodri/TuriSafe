@@ -17,7 +17,11 @@
     padding: 0 1.25rem;
   }
 
-  .header-nav a:not(.nav-cta) { display: none; }
+  #search-section { padding: 3rem 1.25rem 4rem; }
+
+  #tab-explorar #map-section { padding: 1rem 1.25rem 1.25rem; }
+
+  #tab-explorar #map { height: calc(100dvh - var(--header-h) - 70px); }
 
   #hero {
     padding: calc(var(--header-h) + 3rem) 1.25rem 4rem;
