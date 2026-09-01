@@ -796,21 +796,6 @@ h1.hero-title {
 .contact-police    { background: #eff6ff; color: #1e40af; border-color: #bfdbfe; }
 .contact-fire      { background: #fff7ed; color: #9a3412; border-color: #fed7aa; }
 
-/* ── Demo alert button ───────────────────────── */
-#demo-alert-btn {
-  width: 100%;
-  padding: 0.55rem;
-  background: transparent;
-  border: 1px dashed #94a3b8;
-  border-radius: var(--radius);
-  font-size: 0.8rem;
-  color: var(--color-muted);
-  cursor: pointer;
-  transition: all 0.15s;
-  font-weight: 500;
-}
-
-#demo-alert-btn:hover { background: var(--color-bg); border-color: var(--color-muted); }
 
 /* ── Donation section ────────────────────────── */
 #donation-section { border-top: 1px solid var(--color-border); padding-top: 1.25rem; }
