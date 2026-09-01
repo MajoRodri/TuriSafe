@@ -6,22 +6,1130 @@
       "lat": 40.4168,
       "lon": -3.7038,
       "telefono_emergencias": "112",
-      "policia": "091",
-      "bomberos": "080",
+      "policia": "092",
+      "bomberos": "112",
       "meses": {
-        "enero":      { "riesgos": [], "recomendaciones": [], "kit": [] },
-        "febrero":    { "riesgos": [], "recomendaciones": [], "kit": [] },
-        "marzo":      { "riesgos": [], "recomendaciones": [], "kit": [] },
-        "abril":      { "riesgos": [], "recomendaciones": [], "kit": [] },
-        "mayo":       { "riesgos": [], "recomendaciones": [], "kit": [] },
-        "junio":      { "riesgos": [], "recomendaciones": [], "kit": [] },
-        "julio":      { "riesgos": [], "recomendaciones": [], "kit": [] },
-        "agosto":     { "riesgos": [], "recomendaciones": [], "kit": [] },
-        "septiembre": { "riesgos": [], "recomendaciones": [], "kit": [] },
-        "octubre":    { "riesgos": [], "recomendaciones": [], "kit": [] },
-        "noviembre":  { "riesgos": [], "recomendaciones": [], "kit": [] },
-        "diciembre":  { "riesgos": [], "recomendaciones": [], "kit": [] }
-      }
+    "enero": {
+        "riesgos": [
+            "Frío",
+            "Heladas",
+            "Nieve ocasional"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión meteorológica antes de realizar excursiones o desplazamientos",
+            "Utilizar varias capas de ropa para adaptarse a los cambios de temperatura",
+            "Caminar con precaución ante la posible presencia de hielo",
+            "Proteger especialmente manos, cabeza y rostro durante las jornadas más frías"
+        ],
+        "kit": [
+            "Abrigo térmico",
+            "Calzado impermeable con suela antideslizante",
+            "Guantes",
+            "Calcetines térmicos"
+        ]
+    },
+
+    "febrero": {
+        "riesgos": [
+            "Frío",
+            "Heladas",
+            "Nieve ocasional"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión meteorológica antes de desplazarse",
+            "Vestirse por capas para adaptarse a los cambios de temperatura durante el día",
+            "Extremar la precaución al caminar por zonas que puedan presentar placas de hielo",
+            "Proteger manos, cabeza y rostro durante las horas más frías"
+        ],
+        "kit": [
+            "Abrigo térmico",
+            "Calzado impermeable con suela antideslizante",
+            "Guantes",
+            "Gorro"
+        ]
+    },
+
+    "marzo": {
+        "riesgos": [
+            "Lluvias",
+            "Tormentas",
+            "Cambios bruscos de temperatura"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión antes de realizar actividades al aire libre",
+            "Buscar refugio en edificios durante una tormenta eléctrica",
+            "Evitar permanecer bajo árboles aislados durante las tormentas",
+            "Llevar una capa impermeable para los cambios repentinos de tiempo"
+        ],
+        "kit": [
+            "Paraguas compacto",
+            "Chaqueta impermeable ligera",
+            "Funda impermeable para mochila"
+        ]
+    },
+
+    "abril": {
+        "riesgos": [
+            "Lluvias",
+            "Tormentas",
+            "Viento"
+        ],
+        "recomendaciones": [
+            "Consultar los avisos meteorológicos antes de realizar excursiones",
+            "Buscar refugio en edificios durante las tormentas",
+            "Evitar parques y zonas arboladas durante episodios de viento fuerte",
+            "Proteger dispositivos electrónicos de la lluvia durante las visitas"
+        ],
+        "kit": [
+            "Paraguas compacto",
+            "Chaqueta impermeable",
+            "Funda impermeable para mochila",
+            "Bolsa estanca para dispositivos electrónicos"
+        ]
+    },
+
+    "mayo": {
+        "riesgos": [
+            "Altas temperaturas",
+            "Tormentas",
+            "Lluvias"
+        ],
+        "recomendaciones": [
+            "Aprovechar las primeras horas de la mañana o el final de la tarde para las visitas más largas",
+            "Mantener una hidratación frecuente durante las actividades al aire libre",
+            "Buscar sombra y hacer pausas durante los días más calurosos",
+            "Consultar la previsión antes de realizar actividades al aire libre por la posibilidad de tormentas"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra o sombrero",
+            "Gafas de sol"
+        ]
+    },
+
+    "junio": {
+        "riesgos": [
+            "Altas temperaturas",
+            "Tormentas",
+            "Incendios forestales"
+        ],
+        "recomendaciones": [
+            "Evitar las horas centrales del día para las actividades físicas o visitas prolongadas",
+            "Beber agua con frecuencia aunque no se tenga sed",
+            "Buscar sombra o lugares frescos durante las horas de mayor calor",
+            "Consultar los avisos meteorológicos antes de realizar actividades al aire libre",
+            "Respetar las restricciones y prohibiciones relacionadas con el uso del fuego en zonas forestales"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra o sombrero",
+            "Abanico o mini ventilador portátil"
+        ]
+    },
+
+    "julio": {
+        "riesgos": [
+            "Altas temperaturas",
+            "Olas de calor",
+            "Incendios forestales",
+            "Tormentas"
+        ],
+        "recomendaciones": [
+            "Evitar las horas centrales del día y priorizar las primeras horas de la mañana o el atardecer",
+            "Beber agua con frecuencia y hacer pausas en lugares frescos o a la sombra",
+            "Evitar actividades físicas intensas durante las horas de mayor calor",
+            "Consultar los avisos meteorológicos antes de realizar actividades al aire libre",
+            "Respetar las restricciones frente al fuego en zonas forestales"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra o sombrero",
+            "Abanico o mini ventilador portátil",
+            "Gafas de sol"
+        ]
+    },
+
+    "agosto": {
+        "riesgos": [
+            "Altas temperaturas",
+            "Olas de calor",
+            "Incendios forestales",
+            "Tormentas"
+        ],
+        "recomendaciones": [
+            "Planificar las visitas al aire libre para las primeras horas de la mañana o el atardecer",
+            "Buscar sombra o espacios climatizados durante las horas más calurosas",
+            "Hidratarse frecuentemente y refrescarse cuando sea necesario",
+            "Consultar los avisos meteorológicos antes de realizar actividades al aire libre",
+            "Respetar las restricciones frente al fuego en zonas forestales"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra o sombrero",
+            "Mini ventilador portátil",
+            "Pulverizador de agua"
+        ]
+    },
+
+    "septiembre": {
+        "riesgos": [
+            "Altas temperaturas",
+            "Incendios forestales",
+            "Tormentas"
+        ],
+        "recomendaciones": [
+            "Evitar la exposición prolongada al sol durante las horas centrales en los días calurosos",
+            "Mantener una hidratación frecuente durante las visitas",
+            "Consultar los avisos meteorológicos ante posibles tormentas",
+            "Respetar las restricciones frente al fuego mientras permanezca activo el periodo de peligro alto"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra o sombrero",
+            "Gafas de sol",
+            "Abanico"
+        ]
+    },
+
+    "octubre": {
+        "riesgos": [
+            "Lluvias intensas",
+            "Tormentas",
+            "Viento"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión meteorológica antes de realizar excursiones",
+            "Evitar zonas bajas durante episodios de lluvias intensas",
+            "Buscar refugio en edificios durante las tormentas",
+            "Evitar zonas arboladas durante episodios de viento fuerte"
+        ],
+        "kit": [
+            "Paraguas compacto",
+            "Chaqueta impermeable",
+            "Calzado impermeable",
+            "Funda impermeable para mochila"
+        ]
+    },
+
+    "noviembre": {
+        "riesgos": [
+            "Lluvias",
+            "Frío",
+            "Viento",
+            "Heladas ocasionales"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión antes de realizar actividades al aire libre",
+            "Vestirse por capas para adaptarse a los cambios de temperatura",
+            "Protegerse del viento y la lluvia durante las visitas prolongadas",
+            "Extremar la precaución ante posibles heladas en las jornadas más frías"
+        ],
+        "kit": [
+            "Chaqueta impermeable y cortavientos",
+            "Calzado impermeable",
+            "Paraguas compacto",
+            "Capa térmica ligera"
+        ]
+    },
+
+    "diciembre": {
+        "riesgos": [
+            "Frío",
+            "Heladas",
+            "Nieve ocasional",
+            "Lluvias"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión meteorológica antes de desplazarse",
+            "Vestirse por capas y proteger especialmente manos, cabeza y rostro",
+            "Caminar con precaución ante la posible presencia de hielo",
+            "Consultar el estado de las carreteras si se planean desplazamientos fuera de la ciudad"
+        ],
+        "kit": [
+            "Abrigo térmico",
+            "Calzado impermeable con suela antideslizante",
+            "Guantes",
+            "Gorro",
+            "Paraguas compacto"
+        ]
+    }
+}
+    },
+    {
+      "id": "new-york",
+      "nombre": "New York",
+      "lat": 40.7128,
+      "lon": -74.0060,
+      "telefono_emergencias": "911",
+      "policia": "911",
+      "bomberos": "911",
+      "meses": {
+    "enero": {
+        "riesgos": [
+            "Frío intenso",
+            "Nieve",
+            "Hielo",
+            "Lluvia helada"
+        ],
+        "recomendaciones": [
+            "Consultar los avisos meteorológicos antes de desplazarse",
+            "Utilizar calzado con buena tracción para caminar sobre nieve o hielo",
+            "Vestirse por capas y proteger especialmente manos, cabeza y rostro",
+            "Extremar la precaución en aceras y escaleras que puedan presentar hielo",
+            "Consultar posibles alteraciones del transporte durante las tormentas de invierno"
+        ],
+        "kit": [
+            "Abrigo térmico",
+            "Botas impermeables con buena tracción",
+            "Guantes térmicos",
+            "Gorro",
+            "Calentadores de manos"
+        ]
+    },
+
+    "febrero": {
+        "riesgos": [
+            "Frío intenso",
+            "Nieve",
+            "Hielo",
+            "Lluvia helada"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión y los avisos meteorológicos antes de salir",
+            "Utilizar calzado con buena tracción en calles y aceras heladas",
+            "Vestirse por capas para adaptarse a los cambios de temperatura",
+            "Evitar caminar por zonas con hielo acumulado si existe una alternativa segura",
+            "Comprobar el estado del transporte ante posibles tormentas de invierno"
+        ],
+        "kit": [
+            "Abrigo térmico",
+            "Botas impermeables con buena tracción",
+            "Guantes térmicos",
+            "Gorro",
+            "Calcetines térmicos"
+        ]
+    },
+
+    "marzo": {
+        "riesgos": [
+            "Frío",
+            "Lluvias",
+            "Tormentas",
+            "Nieve ocasional"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión antes de realizar actividades al aire libre",
+            "Llevar varias capas para adaptarse a los cambios de temperatura",
+            "Buscar refugio en interiores durante tormentas eléctricas",
+            "Extremar la precaución ante posibles episodios tardíos de nieve o hielo"
+        ],
+        "kit": [
+            "Chaqueta impermeable",
+            "Calzado resistente al agua",
+            "Paraguas compacto",
+            "Capa térmica ligera"
+        ]
+    },
+
+    "abril": {
+        "riesgos": [
+            "Lluvias",
+            "Tormentas",
+            "Viento fuerte"
+        ],
+        "recomendaciones": [
+            "Consultar los avisos meteorológicos antes de realizar actividades al aire libre",
+            "Buscar refugio en edificios durante tormentas eléctricas",
+            "Evitar permanecer cerca de árboles, andamios o estructuras expuestas durante vientos fuertes",
+            "Prever tiempo adicional para los desplazamientos si hay lluvia intensa"
+        ],
+        "kit": [
+            "Paraguas resistente",
+            "Chaqueta impermeable ligera",
+            "Funda impermeable para mochila",
+            "Bolsa impermeable para dispositivos electrónicos"
+        ]
+    },
+
+    "mayo": {
+        "riesgos": [
+            "Lluvias intensas",
+            "Tormentas",
+            "Altas temperaturas"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión antes de realizar actividades al aire libre",
+            "Buscar refugio en interiores cuando comiencen los rayos o las tormentas",
+            "Hacer pausas en lugares frescos durante los días más cálidos",
+            "Evitar zonas bajas y pasos subterráneos durante lluvias intensas",
+            "Consultar posibles alteraciones del transporte durante episodios de lluvia fuerte"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Paraguas compacto",
+            "Funda impermeable para mochila",
+            "Gafas de sol"
+        ]
+    },
+
+    "junio": {
+        "riesgos": [
+            "Calor y humedad",
+            "Tormentas",
+            "Lluvias intensas",
+            "Inicio de temporada de huracanes"
+        ],
+        "recomendaciones": [
+            "Evitar las actividades físicas más exigentes durante las horas de mayor calor",
+            "Hidratarse con frecuencia y hacer pausas en lugares frescos",
+            "Consultar los avisos meteorológicos antes de realizar actividades al aire libre",
+            "Evitar zonas bajas y pasos subterráneos durante lluvias intensas",
+            "Comprobar los avisos oficiales ante posibles tormentas costeras"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra",
+            "Mini ventilador portátil",
+            "Funda impermeable para mochila"
+        ]
+    },
+
+    "julio": {
+        "riesgos": [
+            "Calor extremo",
+            "Alta humedad",
+            "Tormentas",
+            "Lluvias intensas"
+        ],
+        "recomendaciones": [
+            "Evitar las horas de mayor calor para las actividades físicas más exigentes",
+            "Hacer pausas frecuentes en espacios climatizados o a la sombra",
+            "Beber agua con frecuencia y no esperar a tener sed",
+            "Consultar los avisos meteorológicos antes de realizar actividades al aire libre",
+            "Evitar el metro, túneles y zonas bajas si se producen lluvias intensas o inundaciones"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra",
+            "Mini ventilador portátil",
+            "Toalla refrescante"
+        ]
+    },
+
+    "agosto": {
+        "riesgos": [
+            "Calor extremo",
+            "Alta humedad",
+            "Tormentas",
+            "Huracanes y tormentas tropicales",
+            "Inundaciones"
+        ],
+        "recomendaciones": [
+            "Consultar los avisos oficiales antes de realizar actividades al aire libre",
+            "Evitar desplazamientos por zonas bajas durante lluvias intensas",
+            "Seguir las indicaciones de evacuación si se emite una orden oficial",
+            "No caminar ni conducir por calles inundadas",
+            "Planificar alternativas de transporte ante posibles interrupciones por tormentas"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra",
+            "Mini ventilador portátil",
+            "Batería externa para el móvil",
+            "Funda impermeable para documentación y dispositivos"
+        ]
+    },
+
+    "septiembre": {
+        "riesgos": [
+            "Calor y humedad",
+            "Tormentas",
+            "Huracanes y tormentas tropicales",
+            "Inundaciones"
+        ],
+        "recomendaciones": [
+            "Consultar los avisos meteorológicos antes de realizar excursiones",
+            "Seguir las indicaciones oficiales ante posibles tormentas costeras o evacuaciones",
+            "Evitar zonas bajas durante lluvias intensas",
+            "No caminar ni conducir por calles inundadas",
+            "Planificar rutas alternativas si se prevén alteraciones del transporte"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra",
+            "Batería externa",
+            "Funda impermeable para mochila"
+        ]
+    },
+
+    "octubre": {
+        "riesgos": [
+            "Lluvias intensas",
+            "Tormentas",
+            "Huracanes y tormentas tropicales",
+            "Inundaciones",
+            "Viento fuerte"
+        ],
+        "recomendaciones": [
+            "Consultar los avisos meteorológicos antes de realizar excursiones",
+            "Seguir las indicaciones oficiales durante tormentas costeras",
+            "Evitar zonas bajas y pasos subterráneos durante lluvias intensas",
+            "Buscar refugio en interiores durante tormentas eléctricas",
+            "Prever alternativas de transporte ante posibles interrupciones"
+        ],
+        "kit": [
+            "Chaqueta impermeable",
+            "Paraguas resistente",
+            "Calzado impermeable",
+            "Funda impermeable para mochila",
+            "Batería externa"
+        ]
+    },
+
+    "noviembre": {
+        "riesgos": [
+            "Descenso de temperaturas",
+            "Lluvias",
+            "Viento",
+            "Tormentas costeras"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión antes de realizar actividades al aire libre",
+            "Vestirse por capas para adaptarse a los cambios de temperatura",
+            "Protegerse del viento y la lluvia durante las visitas prolongadas",
+            "Consultar avisos oficiales ante posibles tormentas costeras",
+            "Prever tiempo adicional para desplazamientos durante episodios de mal tiempo"
+        ],
+        "kit": [
+            "Chaqueta impermeable y cortavientos",
+            "Calzado resistente al agua",
+            "Paraguas resistente",
+            "Capa térmica ligera",
+            "Guantes finos"
+        ]
+    },
+
+    "diciembre": {
+        "riesgos": [
+            "Frío",
+            "Nieve",
+            "Hielo",
+            "Lluvia helada"
+        ],
+        "recomendaciones": [
+            "Consultar los avisos meteorológicos antes de desplazarse",
+            "Utilizar calzado impermeable con buena tracción",
+            "Vestirse por capas y proteger especialmente manos, cabeza y rostro",
+            "Extremar la precaución al caminar por aceras heladas",
+            "Comprobar posibles alteraciones del transporte durante tormentas de invierno"
+        ],
+        "kit": [
+            "Abrigo térmico",
+            "Botas impermeables con buena tracción",
+            "Guantes térmicos",
+            "Gorro",
+            "Calentadores de manos"
+        ]
+    }
+}
+    },
+    {
+      "id": "tokyo",
+      "nombre": "Tokyo",
+      "lat": 35.6762,
+      "lon": 139.6503,
+      "telefono_emergencias": "119",
+      "policia": "110",
+      "bomberos": "119",
+      "meses": {
+    "enero": {
+        "riesgos": [
+            "Frío",
+            "Terremotos",
+            "Lluvias ocasionales"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión meteorológica antes de realizar actividades al aire libre",
+            "Vestirse por capas para adaptarse a los cambios de temperatura",
+            "Identificar las salidas de emergencia del alojamiento al llegar",
+            "Mantenerse informado mediante las aplicaciones y canales oficiales de prevención de desastres",
+            "En caso de terremoto, protegerse de objetos que puedan caer y seguir las indicaciones del personal o de las autoridades"
+        ],
+        "kit": [
+            "Chaqueta térmica",
+            "Capa térmica ligera",
+            "Paraguas plegable",
+            "Batería externa para el móvil",
+            "Copia digital de la documentación"
+        ]
+    },
+
+    "febrero": {
+        "riesgos": [
+            "Frío",
+            "Terremotos",
+            "Lluvias ocasionales",
+            "Nieve ocasional"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión meteorológica antes de desplazarse",
+            "Vestirse por capas y protegerse especialmente durante las horas más frías",
+            "Identificar las salidas de emergencia del alojamiento",
+            "Mantener el teléfono móvil cargado para poder recibir información de emergencia",
+            "En caso de terremoto, permanecer en un lugar seguro y seguir las indicaciones oficiales"
+        ],
+        "kit": [
+            "Chaqueta térmica",
+            "Capa térmica ligera",
+            "Paraguas plegable",
+            "Batería externa",
+            "Guantes finos"
+        ]
+    },
+
+    "marzo": {
+        "riesgos": [
+            "Lluvias",
+            "Cambios de temperatura",
+            "Terremotos"
+        ],
+        "recomendaciones": [
+            "Vestirse por capas para adaptarse a los cambios de temperatura durante el día",
+            "Consultar la previsión antes de realizar actividades al aire libre",
+            "Llevar protección frente a la lluvia durante las visitas prolongadas",
+            "Identificar las salidas de emergencia del alojamiento",
+            "Mantenerse informado mediante los canales oficiales de prevención de desastres"
+        ],
+        "kit": [
+            "Chaqueta impermeable ligera",
+            "Paraguas plegable",
+            "Capa térmica ligera",
+            "Calzado resistente al agua",
+            "Batería externa"
+        ]
+    },
+
+    "abril": {
+        "riesgos": [
+            "Lluvias",
+            "Tormentas",
+            "Terremotos"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión meteorológica antes de realizar actividades al aire libre",
+            "Llevar protección frente a la lluvia durante las visitas",
+            "Buscar refugio en interiores durante tormentas fuertes",
+            "Identificar las salidas de emergencia del alojamiento",
+            "Mantener el teléfono móvil cargado para recibir información de emergencia"
+        ],
+        "kit": [
+            "Paraguas plegable",
+            "Chaqueta impermeable ligera",
+            "Funda impermeable para mochila",
+            "Batería externa"
+        ]
+    },
+
+    "mayo": {
+        "riesgos": [
+            "Lluvias",
+            "Tormentas",
+            "Aumento de temperaturas",
+            "Terremotos"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión meteorológica antes de realizar actividades al aire libre",
+            "Protegerse del sol durante las visitas prolongadas",
+            "Llevar agua y hacer pausas cuando aumenten las temperaturas",
+            "Buscar refugio en interiores durante tormentas fuertes",
+            "Mantenerse informado mediante los canales oficiales de prevención de desastres"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra o sombrero",
+            "Paraguas plegable",
+            "Batería externa"
+        ]
+    },
+
+    "junio": {
+        "riesgos": [
+            "Temporada de lluvias",
+            "Lluvias torrenciales",
+            "Inundaciones",
+            "Calor y humedad",
+            "Terremotos"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión meteorológica antes de realizar actividades al aire libre",
+            "Llevar protección frente a la lluvia durante las visitas",
+            "Evitar zonas bajas durante lluvias torrenciales",
+            "Buscar un lugar seguro y esperar a que pase la lluvia durante los chaparrones intensos",
+            "Mantenerse hidratado y utilizar ropa ligera y transpirable"
+        ],
+        "kit": [
+            "Paraguas plegable",
+            "Chubasquero transpirable",
+            "Calzado resistente al agua",
+            "Funda impermeable para mochila",
+            "Botella reutilizable"
+        ]
+    },
+
+    "julio": {
+        "riesgos": [
+            "Calor y humedad",
+            "Lluvias torrenciales",
+            "Tormentas",
+            "Inundaciones",
+            "Terremotos"
+        ],
+        "recomendaciones": [
+            "Utilizar ropa ligera y transpirable durante las visitas",
+            "Beber agua con frecuencia y hacer pausas para evitar el agotamiento por calor",
+            "Buscar refugio durante las lluvias torrenciales y esperar a que pasen",
+            "Consultar los avisos meteorológicos antes de realizar actividades al aire libre",
+            "Evitar zonas bajas durante episodios de lluvia intensa"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Paraguas UV plegable",
+            "Mini ventilador portátil",
+            "Toalla refrescante",
+            "Protector solar"
+        ]
+    },
+
+    "agosto": {
+        "riesgos": [
+            "Calor extremo",
+            "Alta humedad",
+            "Tifones",
+            "Lluvias torrenciales",
+            "Inundaciones",
+            "Terremotos"
+        ],
+        "recomendaciones": [
+            "Evitar la exposición prolongada al sol durante las horas de mayor calor",
+            "Beber agua con frecuencia y reponer sales minerales durante las jornadas calurosas",
+            "Consultar los avisos meteorológicos ante la aproximación de un tifón",
+            "Evitar desplazarse por zonas costeras o cercanas a ríos durante condiciones meteorológicas adversas",
+            "Seguir las indicaciones oficiales y evacuar a una zona segura si se emite una orden"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Parasol o sombrilla",
+            "Mini ventilador portátil",
+            "Toalla refrescante",
+            "Batería externa para el móvil",
+            "Funda impermeable para documentación y dispositivos"
+        ]
+    },
+
+    "septiembre": {
+        "riesgos": [
+            "Calor y humedad",
+            "Tifones",
+            "Lluvias torrenciales",
+            "Inundaciones",
+            "Terremotos"
+        ],
+        "recomendaciones": [
+            "Consultar los avisos meteorológicos antes de realizar excursiones",
+            "Mantenerse hidratado y hacer pausas en lugares frescos durante los días calurosos",
+            "Seguir las indicaciones oficiales ante la llegada de tifones",
+            "Evitar zonas bajas y cercanas a ríos durante lluvias intensas",
+            "Planificar rutas alternativas ante posibles interrupciones del transporte público"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Mini ventilador portátil",
+            "Chubasquero ligero",
+            "Calzado impermeable",
+            "Batería externa",
+            "Funda impermeable para mochila"
+        ]
+    },
+
+    "octubre": {
+        "riesgos": [
+            "Lluvias intensas",
+            "Tifones",
+            "Inundaciones",
+            "Viento fuerte",
+            "Terremotos"
+        ],
+        "recomendaciones": [
+            "Consultar los avisos meteorológicos antes de realizar excursiones",
+            "Seguir las indicaciones oficiales durante episodios de tifón",
+            "Evitar zonas bajas y cercanas a ríos durante lluvias intensas",
+            "Buscar refugio en interiores durante vientos fuertes o lluvias torrenciales",
+            "Prever alternativas de transporte ante posibles interrupciones"
+        ],
+        "kit": [
+            "Chubasquero impermeable",
+            "Paraguas resistente",
+            "Calzado impermeable",
+            "Funda impermeable para mochila",
+            "Batería externa"
+        ]
+    },
+
+    "noviembre": {
+        "riesgos": [
+            "Descenso de temperaturas",
+            "Lluvias",
+            "Terremotos"
+        ],
+        "recomendaciones": [
+            "Vestirse por capas para adaptarse a los cambios de temperatura",
+            "Consultar la previsión meteorológica antes de realizar actividades al aire libre",
+            "Protegerse de la lluvia durante las visitas prolongadas",
+            "Identificar las salidas de emergencia del alojamiento",
+            "Mantenerse informado mediante los canales oficiales de prevención de desastres"
+        ],
+        "kit": [
+            "Chaqueta impermeable",
+            "Capa térmica ligera",
+            "Paraguas plegable",
+            "Calzado resistente al agua",
+            "Batería externa"
+        ]
+    },
+
+    "diciembre": {
+        "riesgos": [
+            "Frío",
+            "Lluvias ocasionales",
+            "Terremotos"
+        ],
+        "recomendaciones": [
+            "Vestirse por capas y protegerse durante las horas más frías",
+            "Consultar la previsión meteorológica antes de realizar actividades al aire libre",
+            "Llevar protección frente a la lluvia durante las visitas",
+            "Identificar las salidas de emergencia del alojamiento",
+            "Mantener el teléfono móvil cargado y seguir los canales oficiales ante una emergencia"
+        ],
+        "kit": [
+            "Abrigo ligero",
+            "Capa térmica",
+            "Paraguas plegable",
+            "Calzado resistente al agua",
+            "Batería externa"
+        ]
+    }
+}
+    },
+    {
+      "id": "sidney",
+      "nombre": "Sidney",
+      "lat": -33.8688,
+      "lon": 151.2093,
+      "telefono_emergencias": "000",
+      "policia": "000",
+      "bomberos": "000",
+      "meses": {
+    "enero": {
+        "riesgos": [
+            "Calor",
+            "Incendios forestales",
+            "Tormentas",
+            "Lluvias intensas",
+            "Inundaciones"
+        ],
+        "recomendaciones": [
+            "Mantenerse hidratado y evitar la exposición prolongada durante las horas de mayor calor",
+            "Consultar los avisos meteorológicos y de peligro de incendios antes de realizar actividades al aire libre",
+            "Evitar zonas afectadas por humo de incendios forestales",
+            "Seguir las indicaciones de las autoridades y evacuar si se emite una orden",
+            "Evitar zonas bajas durante lluvias intensas y no atravesar zonas inundadas"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra o sombrero",
+            "Mini ventilador portátil",
+            "Mascarilla para protección frente al humo",
+            "Batería externa"
+        ]
+    },
+
+    "febrero": {
+        "riesgos": [
+            "Calor",
+            "Incendios forestales",
+            "Tormentas",
+            "Lluvias intensas",
+            "Inundaciones"
+        ],
+        "recomendaciones": [
+            "Beber agua con frecuencia y buscar lugares frescos durante los días calurosos",
+            "Consultar los avisos meteorológicos y de peligro de incendios antes de realizar actividades al aire libre",
+            "Evitar zonas afectadas por humo de incendios forestales",
+            "Seguir las indicaciones oficiales ante posibles incendios o evacuaciones",
+            "No caminar ni conducir por zonas inundadas durante lluvias intensas"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra o sombrero",
+            "Mini ventilador portátil",
+            "Mascarilla para protección frente al humo",
+            "Batería externa"
+        ]
+    },
+
+    "marzo": {
+        "riesgos": [
+            "Calor",
+            "Incendios forestales",
+            "Lluvias intensas",
+            "Tormentas",
+            "Inundaciones"
+        ],
+        "recomendaciones": [
+            "Mantenerse hidratado durante los días cálidos",
+            "Consultar los avisos de incendios y meteorología antes de realizar actividades al aire libre",
+            "Evitar zonas afectadas por humo o incendios forestales",
+            "Evitar zonas bajas durante lluvias intensas",
+            "Seguir las indicaciones oficiales ante posibles evacuaciones"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra o sombrero",
+            "Paraguas compacto",
+            "Mascarilla para protección frente al humo",
+            "Batería externa"
+        ]
+    },
+
+    "abril": {
+        "riesgos": [
+            "Lluvias intensas",
+            "Tormentas",
+            "Inundaciones",
+            "Viento fuerte"
+        ],
+        "recomendaciones": [
+            "Consultar la previsión meteorológica antes de realizar actividades al aire libre",
+            "Evitar zonas bajas durante lluvias intensas",
+            "No caminar ni conducir por zonas inundadas",
+            "Buscar refugio en interiores durante tormentas fuertes",
+            "Extremar la precaución cerca de árboles, estructuras y zonas costeras durante vientos fuertes"
+        ],
+        "kit": [
+            "Chaqueta impermeable ligera",
+            "Paraguas resistente",
+            "Calzado resistente al agua",
+            "Funda impermeable para mochila",
+            "Batería externa"
+        ]
+    },
+
+    "mayo": {
+        "riesgos": [
+            "Lluvias",
+            "Tormentas",
+            "Inundaciones",
+            "Viento fuerte"
+        ],
+        "recomendaciones": [
+            "Consultar los avisos meteorológicos antes de realizar actividades al aire libre",
+            "Llevar protección frente a la lluvia durante las visitas prolongadas",
+            "Evitar zonas bajas durante lluvias intensas",
+            "Buscar refugio en interiores durante tormentas fuertes",
+            "Prever alternativas de transporte ante posibles interrupciones por mal tiempo"
+        ],
+        "kit": [
+            "Chaqueta impermeable",
+            "Paraguas resistente",
+            "Calzado resistente al agua",
+            "Funda impermeable para mochila",
+            "Capa térmica ligera"
+        ]
+    },
+
+    "junio": {
+        "riesgos": [
+            "Lluvias intensas",
+            "Tormentas",
+            "Inundaciones",
+            "Viento fuerte",
+            "Oleaje peligroso"
+        ],
+        "recomendaciones": [
+            "Consultar los avisos meteorológicos antes de desplazarse",
+            "Evitar zonas bajas y áreas próximas a cursos de agua durante lluvias intensas",
+            "No caminar ni conducir por zonas inundadas",
+            "Evitar acercarse a la costa durante condiciones de oleaje peligroso",
+            "Seguir las indicaciones oficiales ante tormentas severas"
+        ],
+        "kit": [
+            "Chaqueta impermeable",
+            "Paraguas resistente",
+            "Calzado impermeable",
+            "Funda impermeable para mochila",
+            "Batería externa"
+        ]
+    },
+
+    "julio": {
+        "riesgos": [
+            "Frío moderado",
+            "Lluvias",
+            "Tormentas",
+            "Viento fuerte"
+        ],
+        "recomendaciones": [
+            "Vestirse por capas para adaptarse a los cambios de temperatura",
+            "Consultar la previsión meteorológica antes de realizar actividades al aire libre",
+            "Llevar protección frente a la lluvia durante las visitas",
+            "Buscar refugio en interiores durante tormentas fuertes",
+            "Extremar la precaución cerca de la costa durante episodios de viento y oleaje intenso"
+        ],
+        "kit": [
+            "Chaqueta impermeable",
+            "Capa térmica ligera",
+            "Paraguas resistente",
+            "Calzado resistente al agua",
+            "Batería externa"
+        ]
+    },
+
+    "agosto": {
+        "riesgos": [
+            "Frío moderado",
+            "Lluvias",
+            "Viento",
+            "Tormentas"
+        ],
+        "recomendaciones": [
+            "Vestirse por capas durante las horas más frescas",
+            "Consultar la previsión meteorológica antes de realizar actividades al aire libre",
+            "Llevar protección frente a la lluvia",
+            "Extremar la precaución cerca de la costa durante episodios de viento fuerte",
+            "Consultar posibles alteraciones del transporte ante condiciones meteorológicas adversas"
+        ],
+        "kit": [
+            "Chaqueta ligera impermeable",
+            "Paraguas compacto",
+            "Capa térmica ligera",
+            "Calzado resistente al agua",
+            "Batería externa"
+        ]
+    },
+
+    "septiembre": {
+        "riesgos": [
+            "Aumento de temperaturas",
+            "Incendios forestales",
+            "Tormentas",
+            "Lluvias intensas",
+            "Viento fuerte"
+        ],
+        "recomendaciones": [
+            "Consultar los avisos meteorológicos y de peligro de incendios antes de realizar actividades al aire libre",
+            "Mantenerse hidratado durante los días más cálidos",
+            "Evitar zonas afectadas por humo o incendios forestales",
+            "Seguir las indicaciones oficiales ante posibles evacuaciones",
+            "Extremar la precaución durante episodios de viento fuerte"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra o sombrero",
+            "Paraguas compacto",
+            "Mascarilla para protección frente al humo",
+            "Batería externa"
+        ]
+    },
+
+    "octubre": {
+        "riesgos": [
+            "Incendios forestales",
+            "Calor",
+            "Tormentas",
+            "Lluvias intensas",
+            "Viento fuerte"
+        ],
+        "recomendaciones": [
+            "Consultar el nivel de peligro de incendios antes de realizar actividades al aire libre",
+            "Evitar zonas afectadas por humo o incendios forestales",
+            "Seguir las indicaciones oficiales y evacuar si se emite una orden",
+            "Mantenerse hidratado durante los días cálidos",
+            "Consultar los avisos meteorológicos ante tormentas y vientos fuertes"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra o sombrero",
+            "Mascarilla para protección frente al humo",
+            "Funda impermeable para mochila",
+            "Batería externa"
+        ]
+    },
+
+    "noviembre": {
+        "riesgos": [
+            "Incendios forestales",
+            "Calor",
+            "Tormentas",
+            "Lluvias intensas",
+            "Inundaciones"
+        ],
+        "recomendaciones": [
+            "Consultar el nivel de peligro de incendios antes de realizar actividades al aire libre",
+            "Evitar zonas afectadas por humo o incendios forestales",
+            "Seguir las indicaciones oficiales ante posibles evacuaciones",
+            "Mantenerse hidratado y buscar lugares frescos durante los días calurosos",
+            "Evitar zonas bajas durante lluvias intensas"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra o sombrero",
+            "Mini ventilador portátil",
+            "Mascarilla para protección frente al humo",
+            "Batería externa"
+        ]
+    },
+
+    "diciembre": {
+        "riesgos": [
+            "Calor",
+            "Incendios forestales",
+            "Tormentas",
+            "Lluvias intensas",
+            "Inundaciones"
+        ],
+        "recomendaciones": [
+            "Mantenerse hidratado y evitar la exposición prolongada durante las horas de mayor calor",
+            "Consultar los avisos meteorológicos y de peligro de incendios antes de realizar actividades al aire libre",
+            "Evitar zonas afectadas por humo o incendios forestales",
+            "Seguir las indicaciones oficiales y evacuar si se emite una orden",
+            "No caminar ni conducir por zonas inundadas durante lluvias intensas"
+        ],
+        "kit": [
+            "Botella reutilizable",
+            "Protector solar",
+            "Gorra o sombrero",
+            "Mini ventilador portátil",
+            "Mascarilla para protección frente al humo",
+            "Batería externa"
+        ]
+    }
+}
     }
   ]
 }
