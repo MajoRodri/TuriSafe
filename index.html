@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TuriSafe - Viaja preparado</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <div id="alert-banner" class="hidden" role="alert"></div>
+
+  <!-- ── Header ──────────────────────────────── -->
+  <header>
+    <div class="header-brand">
+      <img src="assets/images/logo.png" alt="" class="header-logo" onerror="this.style.display='none'" />
+      <span class="brand-name">Turi<span class="brand-accent">Safe</span></span>
+    </div>
+    <nav class="header-nav">
+      <button class="tab-btn tab-active" data-tab="inicio">Inicio</button>
+      <button class="tab-btn" data-tab="explorar">Explorar</button>
+    </nav>
+  </header>
+
+  <!-- ══════════════════════════════════════════
+       TAB: INICIO Hero + Features + Búsqueda
+  ══════════════════════════════════════════ -->
+  <div id="tab-inicio" class="tab-section tab-active">
+
+    <!-- ── Hero ──────────────────────────────── -->
+    <section id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-slides">
+          <div class="hero-slide slide-active" style="background-image:url('assets/images/madrid.jpg')"></div>
+          <div class="hero-slide" style="background-image:url('assets/images/newyork.jpg')"></div>
+          <div class="hero-slide" style="background-image:url('assets/images/sydney.jpg')"></div>
+          <div class="hero-slide" style="background-image:url('assets/images/tokyo.jpg')"></div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="deco-circle deco-1"></div>
+        <div class="deco-circle deco-2"></div>
+        <div class="deco-circle deco-3"></div>
+      </div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Tu compa&ntilde;ero de viaje inteligente</p>
+        <h1 class="hero-title">Viaja preparado.<br />Act&uacute;a cuando importa.</h1>
+        <p class="hero-sub">
+          Selecciona tu destino, consulta qu&eacute; riesgos hay seg&uacute;n la &eacute;poca del a&ntilde;o,
+          ve el estado meteorol&oacute;gico actual y, si la zona est&aacute; en alerta, ayuda a los afectados
+          con materiales de primera necesidad.
+        </p>
+
+        <div class="map-search-bar hero-search">
+          <div class="search-input-wrap">
+            <input type="text" id="city-search" placeholder="Busca un destino... ej: Madrid" autocomplete="off" />
+            <button type="button" id="search-clear" class="search-clear hidden" aria-label="Limpiar b&uacute;squeda">&times;</button>
+            <button type="button" id="search-btn" class="search-btn" aria-label="Buscar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </button>
+          </div>
+          <ul id="search-results" class="search-results hidden" role="listbox"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Quiénes somos ────────────────────────── -->
+    <section id="features">
+      <div class="section-wrap">
+
+        <div class="about-header fade-in">
+          <p class="section-eyebrow">Qui&eacute;nes somos</p>
+          <h2 class="about-heading">Turismo inteligente<br />para momentos que importan.</h2>
+          <p class="about-lead">
+            Somos un equipo unido por una idea: la informaci&oacute;n salva vidas.
+            TuriSafe combina datos tur&iacute;sticos, meteorolog&iacute;a en tiempo real y coordinaci&oacute;n
+            ciudadana en una sola plataforma accesible para cualquier viajero.
+          </p>
+        </div>
+
+        <div class="about-divider fade-in"></div>
+
+        <p class="about-offers-label fade-in">Qu&eacute; ofrecemos</p>
+
+        <div class="about-item fade-in" style="--delay:0ms">
+          <span class="about-num">01</span>
+          <div class="about-item-body">
+            <h3>Perfil de destino inteligente</h3>
+            <p>Cada ciudad dispone de un perfil detallado por mes: riesgos clim&aacute;ticos esperados, recomendaciones de seguridad y un kit de equipaje personalizado. Funciona sin conexi&oacute;n para que nunca te quedes sin informaci&oacute;n cuando m&aacute;s la necesitas.</p>
+            <div class="about-tags">
+              <span class="about-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Riesgos por destino
+              </span>
+              <span class="about-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                Informaci&oacute;n por mes
+              </span>
+              <span class="about-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 20H4a2 2 0 01-2-2V7a2 2 0 012-2h3"/><path d="M14 20h6a2 2 0 002-2V7a2 2 0 00-2-2h-3"/><path d="M9 2h6v6H9z"/></svg>
+                Kit de equipaje
+              </span>
+              <span class="about-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0119 12.55M5 12.55a10.94 10.94 0 015.17-2.39M10.71 5.05A16 16 0 0122.56 9M1.42 9a15.91 15.91 0 014.7-2.88M8.53 16.11a6 6 0 016.95 0M12 20h.01"/></svg>
+                Sin conexi&oacute;n
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-item fade-in" style="--delay:120ms">
+          <span class="about-num">02</span>
+          <div class="about-item-body">
+            <h3>Clima en tiempo real</h3>
+            <p>Activando el modo de tiempo real, la aplicaci&oacute;n consulta Open-Meteo con las coordenadas exactas de tu destino y calcula el nivel de alerta: Normal, Precauci&oacute;n o Alerta, para que sepas a qu&eacute; atenerte en cada momento.</p>
+            <div class="about-tags">
+              <span class="about-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/></svg>
+                Temperatura
+              </span>
+              <span class="about-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="19" x2="8" y2="21"/><line x1="8" y1="13" x2="8" y2="15"/><line x1="16" y1="19" x2="16" y2="21"/><line x1="16" y1="13" x2="16" y2="15"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="12" y1="15" x2="12" y2="17"/><path d="M20 16.58A5 5 0 0018 7h-1.26A8 8 0 104 15.25"/></svg>
+                Precipitaci&oacute;n
+              </span>
+              <span class="about-tag">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2"/></svg>
+                Viento
+              </span>
+              <span class="about-tag about-tag--alert">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                Nivel de alerta
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-item fade-in" style="--delay:240ms">
+          <span class="about-num">03</span>
+          <div class="about-item-body">
+            <h3>Ayuda ciudadana en emergencias</h3>
+            <p>Cuando la zona est&aacute; en alerta roja, TuriSafe activa un m&oacute;dulo de coordinaci&oacute;n que permite a cualquier persona ofrecer materiales de primera necesidad: Agua, ropa, alimentos, herramientas y conectarlos con los equipos de respuesta.</p>
+            <div class="about-tags">
+              <span class="about-tag about-tag--alert">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 100-20 10 10 0 000 20z"/><path d="M12 8v4l3 3"/></svg>
+                Agua embotellada
+              </span>
+              <span class="about-tag about-tag--alert">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                Ropa y abrigo
+              </span>
+              <span class="about-tag about-tag--alert">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+                Alimentos
+              </span>
+              <span class="about-tag about-tag--alert">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                Herramientas
+              </span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div><!-- /tab-inicio -->
+
+  <!-- ══════════════════════════════════════════
+       TAB: EXPLORAR  Solo el mapa
+  ══════════════════════════════════════════ -->
+  <div id="tab-explorar" class="tab-section">
+
+    <section id="map-section">
+      <div class="section-wrap">
+
+        <div class="map-controls map-controls--bar">
+          <div class="control-group">
+            <label for="month-selector">Mes</label>
+            <select id="month-selector">
+              <option value="enero">Enero</option>
+              <option value="febrero">Febrero</option>
+              <option value="marzo">Marzo</option>
+              <option value="abril">Abril</option>
+              <option value="mayo">Mayo</option>
+              <option value="junio">Junio</option>
+              <option value="julio">Julio</option>
+              <option value="agosto">Agosto</option>
+              <option value="septiembre">Septiembre</option>
+              <option value="octubre">Octubre</option>
+              <option value="noviembre">Noviembre</option>
+              <option value="diciembre">Diciembre</option>
+            </select>
+          </div>
+          <label class="toggle-label">
+            <input type="checkbox" id="realtime-toggle" />
+            <span class="toggle-track"><span class="toggle-thumb"></span></span>
+            <span>Estado actual</span>
+          </label>
+          <p class="map-hint">Haz clic en una ciudad para ver su perfil completo.</p>
+        </div>
+
+        <div id="map"></div>
+
+      </div>
+    </section>
+
+  </div><!-- /tab-explorar -->
+
+  <!-- ── City panel (drawer) ──────────────────── -->
+  <div id="city-backdrop" aria-hidden="true"></div>
+
+  <section id="city-panel" class="hidden" aria-label="Perfil del destino">
+    <button id="city-panel-close" aria-label="Cerrar">&times;</button>
+
+    <div id="city-header-img" class="city-header-img">
+      <div class="city-header-overlay">
+        <h2 id="city-name"></h2>
+        <div class="status-badge status-normal">
+          <span class="status-dot-inner"></span>
+          <span id="city-status">NORMAL</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Preview visible en el panel -->
+    <div class="panel-preview">
+      <p id="city-summary" class="city-summary"></p>
+      <a id="city-ver-mas" href="pages/city.html" class="btn-ver-mas">
+        Ver perfil completo
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Elementos internos para integración con P2/P4  no visibles en el panel -->
+    <div class="panel-body" aria-hidden="true" style="display:none">
+      <p id="city-status-reason" class="status-reason"></p>
+
+      <div id="weather-loading" class="weather-loading hidden">
+        <span class="spinner"></span>
+        <span>Obteniendo clima actual...</span>
+      </div>
+
+      <div id="climate-context" class="climate-context"></div>
+
+      <div class="section-block">
+        <h3>Kit del viajero</h3>
+        <ul id="traveler-kit"></ul>
+      </div>
+
+      <div id="emergency-contacts" class="section-block">
+        <h3>Contactos de emergencia</h3>
+        <div class="contact-grid">
+          <a id="contact-emergencias" class="contact-card contact-emergency" href="tel:112">
+            <span class="contact-label">Emergencias</span>
+            <span class="contact-number">112</span>
+          </a>
+          <a id="contact-policia" class="contact-card contact-police" href="tel:091">
+            <span class="contact-label">Polic&iacute;a</span>
+            <span class="contact-number">091</span>
+          </a>
+          <a id="contact-bomberos" class="contact-card contact-fire" href="tel:080">
+            <span class="contact-label">Bomberos</span>
+            <span class="contact-number">080</span>
+          </a>
+        </div>
+      </div>
+
+      <div id="donation-section" class="section-block">
+        <h3>Ayuda a los afectados</h3>
+        <p id="donation-blocked-msg" class="donation-blocked-msg">
+          Zona segura. Gracias por tu intenci&oacute;n de ayudar.
+        </p>
+        <form id="donation-form" class="hidden">
+          <div class="field-group">
+            <label for="don-nombre">Nombre *</label>
+            <input type="text" id="don-nombre" name="nombre" required placeholder="Nombre completo" />
+          </div>
+          <div class="field-group">
+            <label for="don-telefono">Tel&eacute;fono *</label>
+            <input type="tel" id="don-telefono" name="telefono" required placeholder="600 000 000" />
+          </div>
+          <fieldset>
+            <legend>Material a ofrecer</legend>
+            <label><input type="checkbox" name="categorias" value="ropa_abrigo" /> Ropa y abrigo</label>
+            <label><input type="checkbox" name="categorias" value="parafarmacia" /> Parafarmacia / Bot&iacute;qu&iacute;n</label>
+            <label><input type="checkbox" name="categorias" value="comida" /> Comida no perecedera</label>
+            <label><input type="checkbox" name="categorias" value="agua" /> Agua embotellada</label>
+            <label><input type="checkbox" name="categorias" value="herramientas" /> Herramientas / Material de limpieza</label>
+          </fieldset>
+          <div class="field-group">
+            <label for="don-ubicacion">Ubicaci&oacute;n de recogida *</label>
+            <input type="text" id="don-ubicacion" name="ubicacion" required placeholder="Direcci&oacute;n o punto de referencia" />
+          </div>
+          <button type="submit" class="btn-primary">Enviar donaci&oacute;n</button>
+        </form>
+        <div id="donation-success" class="donation-success hidden">
+          <p>Tu ofrecimiento ha sido registrado. Muchas gracias por tu ayuda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Report button + modal ─────────────────── -->
+  <button id="report-button" aria-label="Reportar incidencia">+</button>
+
+  <div id="report-modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="report-modal-title">
+    <div class="modal-overlay">
+      <div class="modal-content">
+        <h2 id="report-modal-title">Reportar incidencia</h2>
+        <form id="report-form">
+          <div class="field-group">
+            <label for="report-type">Tipo de incidencia *</label>
+            <select id="report-type" name="tipo" required>
+              <option value="">Selecciona...</option>
+              <option value="carretera_cortada">Carretera cortada</option>
+              <option value="fuente_sin_agua">Fuente sin agua</option>
+              <option value="inundacion_leve">Inundaci&oacute;n leve</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="report-description">Descripci&oacute;n</label>
+            <textarea id="report-description" name="descripcion" rows="3"
+              placeholder="Describe lo que has visto..."></textarea>
+          </div>
+          <div class="modal-actions">
+            <button type="submit" class="btn-primary">Enviar reporte</button>
+            <button type="button" id="report-modal-close" class="btn-secondary">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script type="module" src="js/map.js"></script>
+  <script type="module" src="js/weather.js"></script>
+  <script type="module" src="js/risk.js"></script>
+  <script type="module" src="js/offline.js"></script>
+  <script type="module" src="js/donations.js"></script>
+  <script type="module" src="js/alerts.js"></script>
+  <script type="module" src="js/reports.js"></script>
+  <script type="module" src="js/main.js"></script>
+
+  <!-- Tab switching  no depende de módulos, se ejecuta de forma independiente -->
+  <script>
+    (function () {
+      function activateTab(tabId) {
+        document.querySelectorAll('.tab-btn').forEach(function (b) {
+          b.classList.toggle('tab-active', b.dataset.tab === tabId);
+        });
+        document.querySelectorAll('.tab-section').forEach(function (s) {
+          s.classList.toggle('tab-active', s.id === 'tab-' + tabId);
+        });
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        // main.js escucha este evento para llamar map.invalidateSize()
+        if (tabId === 'explorar') {
+          document.dispatchEvent(new CustomEvent('tab:explorar'));
+        }
+      }
+
+      document.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-tab]');
+        if (btn && btn.dataset.tab) activateTab(btn.dataset.tab);
+      });
+    })();
+
+    // Animación fade-in al hacer scroll con IntersectionObserver
+    (function () {
+      var els = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      els.forEach(function (el) { observer.observe(el); });
+    })();
+
+    // Slideshow del hero  cambia imagen cada 5 segundos
+    (function () {
+      var slides = document.querySelectorAll('.hero-slide');
+      var current = 0;
+      if (slides.length < 2) return;
+      setInterval(function () {
+        slides[current].classList.remove('slide-active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('slide-active');
+      }, 5000);
+    })();
+  </script>
+
+</body>
+</html>

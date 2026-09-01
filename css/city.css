@@ -1,0 +1,240 @@
+/* ── city.html — estilos de página de destino ── */
+
+/* Header back button */
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.btn-back svg { width: 16px; height: 16px; }
+.btn-back:hover { color: #fff; }
+
+/* ── City hero ───────────────────────────────── */
+.city-hero {
+  position: relative;
+  min-height: 65vh;
+  display: flex;
+  align-items: flex-end;
+  padding: calc(var(--header-h) + 3rem) 2rem 3.5rem;
+  overflow: hidden;
+}
+
+.city-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.city-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(12,74,110,0.92) 0%,
+    rgba(12,74,110,0.6) 50%,
+    rgba(0,0,0,0.3) 100%
+  );
+}
+
+.city-hero-content {
+  position: relative;
+  max-width: 760px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.city-country-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 0.3rem 0.875rem;
+  border-radius: 100px;
+  align-self: flex-start;
+}
+
+.city-hero-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.city-hero-desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.7;
+  max-width: 580px;
+  margin: 0;
+}
+
+/* ── Main content ────────────────────────────── */
+.city-main {
+  background: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.city-section {
+  background: var(--color-surface);
+  padding: 3rem 2rem;
+  border-bottom: 1px solid var(--color-border);
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.city-section:last-child { border-bottom: none; }
+
+.city-section-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.city-section-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.city-section-icon svg { width: 24px; height: 24px; }
+
+.city-section-icon--kit      { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); color: #fff; }
+.city-section-icon--contacts { background: linear-gradient(135deg, #ef4444, #f97316); color: #fff; }
+.city-section-icon--climate  { background: linear-gradient(135deg, #0891b2, #06b6d4); color: #fff; }
+
+.city-section-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-muted);
+  margin: 0 0 0.2rem;
+}
+
+.city-section-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin: 0;
+}
+
+/* ── Kit list ────────────────────────────────── */
+.city-kit-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.city-kit-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 0;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  line-height: 1.5;
+}
+
+.city-kit-item:last-child { border-bottom: none; }
+
+.city-kit-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* ── Contact grid city page ──────────────────── */
+.contact-grid--city {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.875rem;
+}
+
+.contact-grid--city .contact-card {
+  padding: 1.25rem 0.75rem;
+}
+
+.contact-grid--city .contact-number { font-size: 1.5rem; }
+
+/* ── Climate note ────────────────────────────── */
+.city-section--climate { background: var(--color-bg); }
+
+.climate-note {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.climate-note p {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.btn-climate-map {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-primary-dark);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 100px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s;
+}
+
+.btn-climate-map svg { width: 15px; height: 15px; }
+.btn-climate-map:hover { background: var(--color-primary); }
+
+/* ── Footer ──────────────────────────────────── */
+.city-footer {
+  background: var(--color-primary-deeper);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 1.5rem 2rem;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 768px) {
+  .city-hero { padding: calc(var(--header-h) + 2rem) 1.25rem 2.5rem; min-height: 55vh; }
+  .city-section { padding: 2.5rem 1.25rem; }
+  .contact-grid--city { grid-template-columns: 1fr; }
+  .climate-note { flex-direction: column; align-items: flex-start; }
+}

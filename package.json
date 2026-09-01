@@ -1,0 +1,10 @@
+{
+  "name": "turisafe",
+  "version": "0.1.0",
+  "description": "MVP Turismo + Asistencia ante Desastres",
+  "scripts": {
+    "test:py": "pytest tests/",
+    "serve": "python -m http.server 8080"
+  },
+  "dependencies": {}
+}
