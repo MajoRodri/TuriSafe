@@ -1,11 +1,13 @@
-import sys
 import pathlib
+import sys
 
 import pytest
+from pydantic import ValidationError
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
 
 from models.ciudad import Ciudad, MesInfo
+
 
 _VALID_CIUDAD = {
     "id": "test",
@@ -26,12 +28,31 @@ _VALID_CIUDAD = {
 
 
 def test_pydantic_valida_ciudad_correcta():
-    pass  # TODO: Ciudad(**_VALID_CIUDAD) should not raise
+    """Comprueba que una ciudad con estructura válida es aceptada."""
+    ciudad = Ciudad(**_VALID_CIUDAD)
+
+    assert ciudad.id == "test"
+    assert ciudad.nombre == "TestCity"
+    assert ciudad.lat == 40.0
+    assert ciudad.lon == -3.5
+    assert len(ciudad.meses) == 12
 
 
 def test_pydantic_rechaza_lat_invalida():
-    pass  # TODO: pass lat=999, expect ValidationError
+    """Comprueba que Pydantic rechaza una latitud fuera del rango válido."""
+    ciudad_invalida = _VALID_CIUDAD.copy()
+    ciudad_invalida["lat"] = 999
+
+    with pytest.raises(ValidationError):
+        Ciudad(**ciudad_invalida)
 
 
 def test_estados_permitidos():
-    pass  # TODO: verify MesInfo only accepts list fields (no extra status field validation needed here)
+    """Comprueba que MesInfo no acepta campos adicionales."""
+    with pytest.raises(ValidationError):
+        MesInfo(
+            riesgos=[],
+            recomendaciones=[],
+            kit=[],
+            estado="ALERTA"
+        )
