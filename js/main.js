@@ -35,7 +35,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   // TODO: update #city-status and #city-status-reason, set status badge class.
 
   // Step 10: Inform donations module of current status
-  // TODO: call setDonationState(risk.status).
+  // MVP: Donaciones desactivadas - no llamamos setDonationState()
+  // TODO: setDonationState(risk.status);
 
   // Step 11: Save selected city for offline use
   // TODO: call saveCity(ciudad).

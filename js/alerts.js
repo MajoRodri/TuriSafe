@@ -1,12 +1,36 @@
 let alertTimer = null;
 
 export function showAlert(message) {
-  // TODO: Set the text content of #alert-banner to message.
-  // TODO: Remove the .hidden class from #alert-banner after a 10-second delay.
-  // TODO: Store the timer reference in alertTimer so it can be cancelled by hideAlert().
+  const banner = document.getElementById('alert-banner');
+  if (!banner) return;
+  
+  // Set message text
+  banner.textContent = message;
+  
+  // Remove hidden class to show banner
+  banner.classList.remove('hidden');
+  
+  // Clear any pending timer
+  if (alertTimer) clearTimeout(alertTimer);
+  
+  // Auto-hide after 10 seconds
+  alertTimer = setTimeout(() => {
+    banner.classList.add('hidden');
+    alertTimer = null;
+  }, 10000);
 }
 
 export function hideAlert() {
-  // TODO: Clear alertTimer if it is pending.
-  // TODO: Add the .hidden class back to #alert-banner.
+  const banner = document.getElementById('alert-banner');
+  
+  // Clear pending timer
+  if (alertTimer) {
+    clearTimeout(alertTimer);
+    alertTimer = null;
+  }
+  
+  // Hide banner
+  if (banner) {
+    banner.classList.add('hidden');
+  }
 }
