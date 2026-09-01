@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TuriSafe — Viaja preparado</title>
+  <title>TuriSafe - Viaja preparado</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
@@ -25,7 +26,7 @@
   </header>
 
   <!-- ══════════════════════════════════════════
-       TAB: INICIO — Hero + Features + Búsqueda
+       TAB: INICIO Hero + Features + Búsqueda
   ══════════════════════════════════════════ -->
   <div id="tab-inicio" class="tab-section tab-active">
 
@@ -115,7 +116,7 @@
           <span class="about-num">02</span>
           <div class="about-item-body">
             <h3>Clima en tiempo real</h3>
-            <p>Activando el modo de tiempo real, la aplicaci&oacute;n consulta Open-Meteo con las coordenadas exactas de tu destino y calcula el nivel de alerta &mdash;Normal, Precauci&oacute;n o Alerta&mdash; para que sepas a qu&eacute; atenerte en cada momento.</p>
+            <p>Activando el modo de tiempo real, la aplicaci&oacute;n consulta Open-Meteo con las coordenadas exactas de tu destino y calcula el nivel de alerta: Normal, Precauci&oacute;n o Alerta, para que sepas a qu&eacute; atenerte en cada momento.</p>
             <div class="about-tags">
               <span class="about-tag">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/></svg>
@@ -141,7 +142,7 @@
           <span class="about-num">03</span>
           <div class="about-item-body">
             <h3>Ayuda ciudadana en emergencias</h3>
-            <p>Cuando la zona est&aacute; en alerta roja, TuriSafe activa un m&oacute;dulo de coordinaci&oacute;n que permite a cualquier persona ofrecer materiales de primera necesidad &mdash;agua, ropa, alimentos, herramientas&mdash; y conectarlos con los equipos de respuesta.</p>
+            <p>Cuando la zona est&aacute; en alerta roja, TuriSafe activa un m&oacute;dulo de coordinaci&oacute;n que permite a cualquier persona ofrecer materiales de primera necesidad: Agua, ropa, alimentos, herramientas y conectarlos con los equipos de respuesta.</p>
             <div class="about-tags">
               <span class="about-tag about-tag--alert">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 100-20 10 10 0 000 20z"/><path d="M12 8v4l3 3"/></svg>
@@ -169,7 +170,7 @@
   </div><!-- /tab-inicio -->
 
   <!-- ══════════════════════════════════════════
-       TAB: EXPLORAR — Solo el mapa
+       TAB: EXPLORAR  Solo el mapa
   ══════════════════════════════════════════ -->
   <div id="tab-explorar" class="tab-section">
 
@@ -236,7 +237,7 @@
       </a>
     </div>
 
-    <!-- Elementos internos para integración con P2/P4 — no visibles en el panel -->
+    <!-- Elementos internos para integración con P2/P4  no visibles en el panel -->
     <div class="panel-body" aria-hidden="true" style="display:none">
       <p id="city-status-reason" class="status-reason"></p>
 
@@ -347,7 +348,7 @@
   <script type="module" src="js/reports.js"></script>
   <script type="module" src="js/main.js"></script>
 
-  <!-- Tab switching — no depende de módulos, se ejecuta de forma independiente -->
+  <!-- Tab switching  no depende de módulos, se ejecuta de forma independiente -->
   <script>
     (function () {
       function activateTab(tabId) {
@@ -388,7 +389,7 @@
       els.forEach(function (el) { observer.observe(el); });
     })();
 
-    // Slideshow del hero — cambia imagen cada 5 segundos
+    // Slideshow del hero  cambia imagen cada 5 segundos
     (function () {
       var slides = document.querySelectorAll('.hero-slide');
       var current = 0;
