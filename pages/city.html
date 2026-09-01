@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Destino - TuriSafe</title>
+  <link rel="icon" type="image/png" href="../assets/images/logo.png" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/city.css" />
+</head>
+<body class="city-page">
+
+  <!-- ── Header ──────────────────────────────── -->
+  <header>
+    <a href="../index.html" class="header-brand">
+      <img src="../assets/images/logo.png" alt="" class="header-logo" onerror="this.style.display='none'" />
+      <span class="brand-name">Turi<span class="brand-accent">Safe</span></span>
+    </a>
+    <a href="../index.html" class="btn-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+      </svg>
+      Volver al mapa
+    </a>
+  </header>
+
+  <!-- ── Hero ciudad ──────────────────────────── -->
+  <section class="city-hero">
+    <div class="city-hero-bg" id="cp-hero-bg"></div>
+    <div class="city-hero-overlay"></div>
+    <div class="city-hero-content">
+      <span id="cp-country" class="city-country-label"></span>
+      <h1 id="cp-name" class="city-hero-title"></h1>
+      <div id="cp-status-badge" class="status-badge status-normal">
+        <span class="status-dot-inner"></span>
+        <span id="cp-status-text">NORMAL</span>
+      </div>
+      <p id="cp-description" class="city-hero-desc"></p>
+    </div>
+  </section>
+
+  <!-- ── Contenido principal ──────────────────── -->
+  <main class="city-main">
+
+    <!-- Kit del viajero -->
+    <section class="city-section">
+      <div class="city-section-header">
+        <div class="city-section-icon city-section-icon--kit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 20H4a2 2 0 01-2-2V7a2 2 0 012-2h3"/><path d="M14 20h6a2 2 0 002-2V7a2 2 0 00-2-2h-3"/><path d="M9 2h6v6H9z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="city-section-eyebrow">Preparación</p>
+          <h2 class="city-section-title">Kit del viajero</h2>
+        </div>
+      </div>
+      <ul id="cp-kit" class="city-kit-list"></ul>
+    </section>
+
+    <!-- Contactos de emergencia -->
+    <section class="city-section">
+      <div class="city-section-header">
+        <div class="city-section-icon city-section-icon--contacts">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="city-section-eyebrow">Seguridad</p>
+          <h2 class="city-section-title">Contactos de emergencia</h2>
+        </div>
+      </div>
+      <div class="contact-grid contact-grid--city">
+        <a id="cp-emergency" class="contact-card contact-emergency" href="tel:112">
+          <span class="contact-label">Emergencias</span>
+          <span id="cp-emergency-num" class="contact-number">112</span>
+        </a>
+        <a id="cp-police" class="contact-card contact-police" href="tel:091">
+          <span class="contact-label">Polic&iacute;a</span>
+          <span id="cp-police-num" class="contact-number">091</span>
+        </a>
+        <a id="cp-fire" class="contact-card contact-fire" href="tel:080">
+          <span class="contact-label">Bomberos</span>
+          <span id="cp-fire-num" class="contact-number">080</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Clima en tiempo real (nota) -->
+    <section class="city-section city-section--climate">
+      <div class="city-section-header">
+        <div class="city-section-icon city-section-icon--climate">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="city-section-eyebrow">Meteorología</p>
+          <h2 class="city-section-title">Estado climático</h2>
+        </div>
+      </div>
+      <div class="climate-note">
+        <p>Para ver el clima en tiempo real de este destino, activa el modo <strong>Estado actual</strong> en el mapa interactivo.</p>
+        <a href="../index.html" class="btn-climate-map" id="btn-go-map">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+          </svg>
+          Ir al mapa
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer minimal ───────────────────────── -->
+  <footer class="city-footer">
+    <p>TuriSafe &copy; Datos actualizados periódicamente. En caso de emergencia usa siempre los números oficiales del destino.</p>
+  </footer>
+
+  <script type="module" src="../js/city-page.js"></script>
+
+  <script>
+    document.getElementById('btn-go-map')?.addEventListener('click', function (e) {
+      e.preventDefault();
+      sessionStorage.setItem('turisafe-tab', 'explorar');
+      window.location.href = '../index.html';
+    });
+  </script>
+
+</body>
+</html>
