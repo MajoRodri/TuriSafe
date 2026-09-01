@@ -2,6 +2,8 @@ import json
 import pathlib
 import sys
 
+import pytest
+
 sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
 
 from models.ciudad import Ciudad
@@ -20,28 +22,62 @@ MESES = [
 
 
 def test_json_carga():
-    pass  # TODO: assert CIUDADES is a non-empty list
+    """Comprueba que el JSON se ha cargado y contiene ciudades."""
+    assert DATA_PATH.exists()
+    assert isinstance(_RAW, dict)
+    assert "ciudades" in _RAW
+    assert isinstance(CIUDADES, list)
+    assert CIUDADES
 
 
 def test_hay_cuatro_ciudades():
-    pass  # TODO: assert len(CIUDADES) == 4
+    """Comprueba que existen exactamente las cuatro ciudades del MVP."""
+    assert len(CIUDADES) == 4
 
 
 def test_ids_unicos():
-    pass  # TODO: collect ids, assert len(set(ids)) == len(CIUDADES)
+    """Comprueba que no existen ciudades con el mismo ID."""
+    ids = [ciudad["id"] for ciudad in CIUDADES]
+    assert len(set(ids)) == len(CIUDADES)
 
 
 def test_coordenadas_validas():
-    pass  # TODO: assert each ciudad has -90 <= lat <= 90 and -180 <= lon <= 180
+    """Comprueba que las coordenadas están dentro de los rangos válidos."""
+    for ciudad in CIUDADES:
+        assert -90 <= ciudad["lat"] <= 90
+        assert -180 <= ciudad["lon"] <= 180
 
 
 def test_telefonos_presentes():
-    pass  # TODO: assert telefono_emergencias, policia, bomberos are non-empty strings
+    """Comprueba que los tres teléfonos están presentes y no están vacíos."""
+    for ciudad in CIUDADES:
+        assert isinstance(ciudad["telefono_emergencias"], str)
+        assert ciudad["telefono_emergencias"].strip()
+
+        assert isinstance(ciudad["policia"], str)
+        assert ciudad["policia"].strip()
+
+        assert isinstance(ciudad["bomberos"], str)
+        assert ciudad["bomberos"].strip()
 
 
 def test_doce_meses():
-    pass  # TODO: assert each ciudad.meses has exactly 12 keys matching MESES
+    """Comprueba que cada ciudad contiene exactamente enero-diciembre."""
+    for ciudad in CIUDADES:
+        assert len(ciudad["meses"]) == 12
+        assert set(ciudad["meses"].keys()) == set(MESES)
 
 
 def test_estructura_mensual():
-    pass  # TODO: for each mes, assert riesgos/recomendaciones/kit are lists
+    """Comprueba la estructura de cada mes de cada ciudad."""
+    for ciudad in CIUDADES:
+        for mes in MESES:
+            informacion = ciudad["meses"][mes]
+
+            assert "riesgos" in informacion
+            assert "recomendaciones" in informacion
+            assert "kit" in informacion
+
+            assert isinstance(informacion["riesgos"], list)
+            assert isinstance(informacion["recomendaciones"], list)
+            assert isinstance(informacion["kit"], list)
