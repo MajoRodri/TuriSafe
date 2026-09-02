@@ -235,6 +235,9 @@
           <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
         </svg>
       </a>
+      <button id="alert-simulation-button" class="btn-alert-sim" data-alert-simulation aria-label="Simular alerta de emergencia">
+        ⚡ Simular alerta
+      </button>
     </div>
 
     <!-- Elementos internos para integración con P2/P4  no visibles en el panel -->
@@ -315,12 +318,24 @@
         <h2 id="report-modal-title">Reportar incidencia</h2>
         <form id="report-form">
           <div class="field-group">
+            <label for="report-city-select">Ciudad *</label>
+            <select id="report-city-select" name="ciudadId" required>
+              <option value="">Selecciona una ciudad...</option>
+            </select>
+          </div>
+          <div class="field-group">
             <label for="report-type">Tipo de incidencia *</label>
             <select id="report-type" name="tipo" required>
               <option value="">Selecciona...</option>
               <option value="carretera_cortada">Carretera cortada</option>
               <option value="fuente_sin_agua">Fuente sin agua</option>
-              <option value="inundacion_leve">Inundaci&oacute;n leve</option>
+              <option value="inundacion_leve">Inundación leve</option>
+              <option value="transporte_interrumpido">Transporte público interrumpido</option>
+              <option value="accidente_via">Accidente u obstáculo en la vía</option>
+              <option value="incendio_humo">Incendio o humo</option>
+              <option value="caida_arboles">Caída de árboles</option>
+              <option value="aglomeracion">Aglomeración, manifestación o disturbio</option>
+              <option value="acceso_cerrado">Atracción, playa o acceso cerrado</option>
               <option value="otro">Otro</option>
             </select>
           </div>
