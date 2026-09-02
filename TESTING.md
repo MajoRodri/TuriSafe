@@ -60,6 +60,6 @@ tests/test_schema.py::test_estados_permitidos              PASSED
 
 ## Notas
 
-- Los tests de `test_ciudades.py` asumen 4 ciudades en el dataset. Actualmente el JSON tiene 1 ciudad placeholder (Madrid). P1 debe completar las 4 ciudades antes de que `test_hay_cuatro_ciudades` pase.
-- Los tests stub tienen cuerpo `pass`. P1 debe implementar las aserciones segun los criterios de la tabla.
-- No se requiere conexion a internet para ninguna prueba.
+- El dataset contiene actualmente 4 ciudades: Madrid, New York, Tokyo y Sydney.
+- Los tests comprueban la integridad del dataset y la validación del modelo Pydantic.
+- No se requiere conexión a internet para ninguna prueba.
