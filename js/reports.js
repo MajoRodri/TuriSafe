@@ -135,12 +135,13 @@ export function initReports() {
       const report = await submitReport({
         tipo: formData.get("tipo"),
         descripcion: formData.get("descripcion"),
+        ciudadId: formData.get("ciudadId") || null,
       });
 
       elements.form.reset();
       showFeedback(
         elements.form,
-        `Reporte ${report.id} guardado. Se enviara cuando exista un servicio de reportes.`,
+        "¡Gracias! Tu reporte ha sido registrado y ya es visible en el perfil de la ciudad.",
       );
     } catch (error) {
       showFeedback(
@@ -172,7 +173,7 @@ export function initReports() {
 export async function submitReport(data) {
   const type = typeof data?.tipo === "string" ? data.tipo.trim() : "";
   if (!VALID_REPORT_TYPES.has(type)) {
-    throw new Error("Selecciona un tipo de incidencia valido.");
+    throw new Error("Selecciona un tipo de incidencia válido.");
   }
 
   const description = typeof data?.descripcion === "string"
@@ -220,9 +221,14 @@ function readStoredReports() {
     const reports = JSON.parse(stored);
     return Array.isArray(reports) ? reports : [];
   } catch (error) {
-    console.warn("[reports.js] Se reinicio un historial local no valido.", error);
+    console.warn("[reports.js] Se reinició un historial local no válido.", error);
     return [];
   }
+}
+
+export function getReportsByCity(cityId) {
+  if (!cityId) return [];
+  return readStoredReports().filter(r => r.ciudadId === cityId);
 }
 
 function createReportId() {

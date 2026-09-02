@@ -1,5 +1,7 @@
 /* ── city.html — estilos de página de destino ── */
 
+body.city-page { background: var(--color-surface); }
+
 /* Header back button */
 .btn-back {
   display: inline-flex;
@@ -18,11 +20,13 @@
 /* ── City hero ───────────────────────────────── */
 .city-hero {
   position: relative;
-  min-height: 65vh;
+  min-height: 52vh;
   display: flex;
-  align-items: flex-end;
-  padding: calc(var(--header-h) + 3rem) 2rem 3.5rem;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--header-h) + 2rem) 2rem 5rem;
   overflow: hidden;
+  text-align: center;
 }
 
 .city-hero-bg {
@@ -36,69 +40,146 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to top,
-    rgba(12,74,110,0.92) 0%,
-    rgba(12,74,110,0.6) 50%,
-    rgba(0,0,0,0.3) 100%
+    to bottom,
+    rgba(0,0,0,0.25) 0%,
+    rgba(12,74,110,0.35) 50%,
+    rgba(12,74,110,0.70) 100%
   );
 }
 
 .city-hero-content {
   position: relative;
-  max-width: 760px;
+  z-index: 2;
   color: #fff;
   display: flex;
   flex-direction: column;
-  gap: 0.875rem;
-}
-
-.city-country-label {
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: rgba(255,255,255,0.65);
-  background: rgba(255,255,255,0.1);
-  border: 1px solid rgba(255,255,255,0.15);
-  padding: 0.3rem 0.875rem;
-  border-radius: 100px;
-  align-self: flex-start;
+  align-items: center;
 }
 
 .city-hero-title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-size: clamp(3.5rem, 9vw, 6rem);
   font-weight: 900;
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   margin: 0;
+  text-shadow:
+    0 1px 0   rgba(0,0,0,0.4),
+    0 2px 6px rgba(0,0,0,0.55),
+    0 8px 28px rgba(0,0,0,0.4),
+    0 20px 60px rgba(0,0,0,0.25);
+  -webkit-text-stroke: 1px rgba(255,255,255,0.12);
 }
 
-.city-hero-desc {
-  font-size: 1rem;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.7;
-  max-width: 580px;
-  margin: 0;
+/* Status badge anchored to bottom-right of hero */
+.city-hero-badge {
+  position: absolute;
+  bottom: 5rem;
+  right: 2rem;
+  z-index: 4;
+}
+
+/* Wave transition between hero and content */
+.city-hero-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.city-hero-wave svg {
+  width: 100%;
+  height: 56px;
+  display: block;
+}
+
+/* ── Emergency card (alerta + donación unificadas) ── */
+.city-emergency-card {
+  background: linear-gradient(160deg, #7f1d1d 0%, #dc2626 100%);
+  color: #fff;
+  margin: 1.5rem auto;
+  max-width: 860px;
+  width: calc(100% - 4rem);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(220,38,38,0.35);
+}
+
+.city-emergency-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: rgba(0,0,0,0.2);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+.city-emergency-alert svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
 }
 
 /* ── Main content ────────────────────────────── */
 .city-main {
-  background: var(--color-bg);
+  background: var(--color-surface);
   display: flex;
   flex-direction: column;
   gap: 0;
 }
 
 .city-section {
-  background: var(--color-surface);
-  padding: 3rem 2rem;
+  background: transparent;
+  padding: 2.5rem 2rem;
   border-bottom: 1px solid var(--color-border);
-  max-width: 900px;
+  max-width: 860px;
   width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .city-section:last-child { border-bottom: none; }
+
+/* ── Intro / description section ─────────────── */
+.city-section--intro {
+  padding-top: 2rem;
+  padding-bottom: 1.75rem;
+}
+
+.city-bio-text {
+  font-size: 1.05rem;
+  color: var(--color-text);
+  line-height: 1.8;
+  margin: 0 0 1.5rem;
+}
+
+.city-month-summary {
+  border-top: 1px solid var(--color-border);
+  padding-top: 1.25rem;
+}
+
+.city-month-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary);
+  margin: 0 0 0.6rem;
+}
+
+.city-intro-text {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.8;
+  margin: 0;
+}
 
 .city-section-header {
   display: flex;
@@ -161,12 +242,21 @@
 
 .city-kit-item:last-child { border-bottom: none; }
 
-.city-kit-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--color-primary);
+.city-kit-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  color: var(--color-primary-dark);
+}
+
+.city-kit-icon svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* ── Contact grid city page ──────────────────── */
@@ -176,14 +266,376 @@
 }
 
 .contact-grid--city .contact-card {
-  padding: 1.25rem 0.75rem;
+  padding: 1.5rem 1rem;
+  gap: 0.25rem;
+  flex-direction: column;
+  align-items: center;
 }
 
-.contact-grid--city .contact-number { font-size: 1.5rem; }
+.contact-icon {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 0.35rem;
+  opacity: 0.8;
+}
 
-/* ── Climate note ────────────────────────────── */
-.city-section--climate { background: var(--color-bg); }
+.contact-service {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: inherit;
+}
 
+.contact-call-hint {
+  font-size: 0.65rem;
+  font-weight: 500;
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+}
+
+.contact-grid--city .contact-number {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  border-top: 1px solid currentColor;
+  border-top-color: rgba(0,0,0,0.1);
+  padding-top: 0.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+/* ── Donate section ──────────────────────────── */
+.city-donate-banner {
+  background: transparent;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.city-donate-text {
+  color: #fff;
+  flex: 1;
+}
+
+.city-donate-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.75;
+  margin: 0 0 0.3rem;
+}
+
+.city-donate-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem;
+  line-height: 1.2;
+}
+
+.city-donate-desc {
+  font-size: 0.875rem;
+  opacity: 0.85;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.btn-donate {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff;
+  color: #dc2626;
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.75rem;
+  border-radius: 100px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 0.15s, box-shadow 0.15s;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+.btn-donate svg { width: 18px; height: 18px; }
+.btn-donate:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+
+/* ── Donation form ───────────────────────────── */
+.city-donate-form-wrap {
+  padding: 1.5rem 2rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.city-donate-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.donate-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.donate-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.donate-field label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.donate-field input[type="text"],
+.donate-field input[type="tel"] {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.875rem;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.donate-field input::placeholder { color: rgba(255,255,255,0.4); }
+.donate-field input:focus { border-color: rgba(255,255,255,0.6); }
+
+.donate-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: 0.2rem;
+}
+
+.donate-checks label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  text-transform: none;
+  letter-spacing: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  cursor: pointer;
+}
+
+/* Custom checkbox — both .donate-checks and .donate-collection-label */
+.donate-checks input[type="checkbox"],
+.donate-collection-label input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.donate-checks input[type="checkbox"]:hover,
+.donate-collection-label input[type="checkbox"]:hover {
+  border-color: rgba(255,255,255,0.85);
+}
+
+.donate-checks input[type="checkbox"]:checked,
+.donate-collection-label input[type="checkbox"]:checked {
+  background: #fff;
+  border-color: #fff;
+}
+
+.donate-checks input[type="checkbox"]:checked::after,
+.donate-collection-label input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 6px;
+  height: 10px;
+  border: 2px solid #dc2626;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.donate-form-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.donate-label-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.donate-label-row label { margin-bottom: 0; }
+
+.donate-info-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.donate-info-btn:hover { color: #fff; }
+.donate-info-btn svg { width: 15px; height: 15px; }
+
+.donate-field-tip {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  background: rgba(0,0,0,0.15);
+  border-left: 2px solid rgba(255,255,255,0.3);
+  padding: 0.45rem 0.65rem;
+  border-radius: 0 4px 4px 0;
+  margin: 0 0 0.5rem;
+  line-height: 1.45;
+}
+
+.donate-field--collection {
+  background: rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.donate-collection-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  cursor: pointer;
+  margin: 0;
+  font-weight: normal;
+  font-size: 0.875rem;
+  color: rgba(255,255,255,0.9);
+}
+
+.donate-collection-label input[type="checkbox"] {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.donate-collection-text { display: flex; flex-direction: column; gap: 0.2rem; }
+
+.donate-collection-title {
+  font-weight: 700;
+  color: #fff;
+  font-size: 0.875rem;
+}
+
+.donate-collection-desc {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.4;
+}
+
+.donate-privacy-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.donate-privacy-note svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  opacity: 0.7;
+}
+
+.btn-donate-submit {
+  background: #fff;
+  color: #dc2626;
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 100px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.btn-donate-submit:hover { opacity: 0.9; }
+.btn-donate-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.donate-feedback {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+  font-weight: 600;
+}
+
+.donate-feedback--error { color: #fca5a5; }
+
+@media (max-width: 768px) {
+  .donate-field-row { grid-template-columns: 1fr; }
+}
+
+/* ── Weather grid ────────────────────────────── */
+.city-weather-loading {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.city-weather-error {
+  font-size: 0.9rem;
+  color: #ef4444;
+  margin: 0;
+}
+
+.city-weather-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.weather-stat {
+  background: var(--color-bg);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.weather-stat-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+.weather-stat-value {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--color-text);
+}
+
+.status-text-normal    { color: #16a34a; }
+.status-text-precaucion { color: #d97706; }
+.status-text-alerta    { color: #dc2626; }
+
+/* ── Climate note (legacy) ───────────────────── */
 .climate-note {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -221,6 +673,70 @@
 .btn-climate-map svg { width: 15px; height: 15px; }
 .btn-climate-map:hover { background: var(--color-primary); }
 
+/* ── Reports section ─────────────────────────── */
+.city-section-icon--reports { background: linear-gradient(135deg, #7c3aed, #a855f7); color: #fff; }
+
+.city-report-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  border-radius: 100px;
+  padding: 0.1rem 0.55rem;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.city-reports-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.city-reports-empty {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.city-report-item {
+  background: var(--color-bg);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.city-report-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.city-report-type {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.city-report-date {
+  font-size: 0.72rem;
+  color: var(--color-muted);
+}
+
+.city-report-desc {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
 /* ── Footer ──────────────────────────────────── */
 .city-footer {
   background: var(--color-primary-deeper);
@@ -233,8 +749,14 @@
 
 /* ── Responsive ──────────────────────────────── */
 @media (max-width: 768px) {
-  .city-hero { padding: calc(var(--header-h) + 2rem) 1.25rem 2.5rem; min-height: 55vh; }
-  .city-section { padding: 2.5rem 1.25rem; }
+  .city-hero { padding: calc(var(--header-h) + 1.5rem) 1.25rem 4rem; min-height: 42vh; }
+  .city-hero-badge { bottom: 4rem; right: 1.25rem; }
+  .city-main { padding: 0 0.25rem; }
+  .city-section { padding: 2rem 1.25rem; }
+  .city-section--intro { padding-top: 1.5rem; padding-bottom: 1.25rem; }
   .contact-grid--city { grid-template-columns: 1fr; }
   .climate-note { flex-direction: column; align-items: flex-start; }
+  .city-weather-grid { grid-template-columns: repeat(2, 1fr); }
+  .city-donate-banner { flex-direction: column; align-items: flex-start; }
+  .btn-donate { width: 100%; justify-content: center; }
 }

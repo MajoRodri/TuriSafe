@@ -29,18 +29,106 @@
     <div class="city-hero-bg" id="cp-hero-bg"></div>
     <div class="city-hero-overlay"></div>
     <div class="city-hero-content">
-      <span id="cp-country" class="city-country-label"></span>
       <h1 id="cp-name" class="city-hero-title"></h1>
-      <div id="cp-status-badge" class="status-badge status-normal">
-        <span class="status-dot-inner"></span>
-        <span id="cp-status-text">NORMAL</span>
+    </div>
+    <div id="cp-status-badge" class="status-badge status-normal city-hero-badge">
+      <span class="status-dot-inner"></span>
+      <span id="cp-status-text">NORMAL</span>
+    </div>
+    <div class="city-hero-wave" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 56" preserveAspectRatio="none">
+        <path fill="#ffffff" d="M0,28 C480,60 960,0 1440,28 L1440,56 L0,56 Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── Tarjeta de emergencia (alerta + donación, solo visible en ALERTA) ── -->
+  <section id="cp-donate-section" class="city-emergency-card hidden" role="alert">
+    <div class="city-emergency-alert">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      <span id="cp-alert-banner"></span>
+    </div>
+    <div class="city-donate-banner">
+      <div class="city-donate-text">
+        <p class="city-donate-eyebrow">Alerta activa</p>
+        <h2 class="city-donate-title">Ayuda a las personas afectadas</h2>
+        <p class="city-donate-desc">Se ha detectado una situación de emergencia en este destino. Tu donación puede marcar la diferencia.</p>
       </div>
-      <p id="cp-description" class="city-hero-desc"></p>
+      <button id="cp-donate-btn" class="btn-donate" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        Donar ahora
+      </button>
+    </div>
+
+    <!-- Formulario de donación (se muestra al pulsar el botón) -->
+    <div id="cp-donate-form-wrap" class="city-donate-form-wrap hidden">
+      <form id="cp-donate-form" class="city-donate-form">
+        <div class="donate-field-row">
+          <div class="donate-field">
+            <label for="don-city-nombre">Nombre *</label>
+            <input type="text" id="don-city-nombre" name="nombre" required placeholder="Tu nombre completo" />
+          </div>
+          <div class="donate-field">
+            <label for="don-city-telefono">Teléfono *</label>
+            <input type="tel" id="don-city-telefono" name="telefono" required placeholder="600 000 000" />
+          </div>
+        </div>
+        <div class="donate-field">
+          <label>¿Qué puedes ofrecer?</label>
+          <div class="donate-checks">
+            <label><input type="checkbox" name="categorias" value="ropa_abrigo" /> Ropa y abrigo</label>
+            <label><input type="checkbox" name="categorias" value="parafarmacia" /> Parafarmacia / Botiquín</label>
+            <label><input type="checkbox" name="categorias" value="comida" /> Comida no perecedera</label>
+            <label><input type="checkbox" name="categorias" value="alojamiento" /> Alojamiento temporal</label>
+          </div>
+        </div>
+        <div class="donate-field">
+          <div class="donate-label-row">
+            <label for="don-city-ubicacion">Ubicación de recogida *</label>
+            <button type="button" class="donate-info-btn" aria-label="Más información" aria-expanded="false" id="don-ubicacion-info-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            </button>
+          </div>
+          <p id="don-ubicacion-tip" class="donate-field-tip hidden">
+            Solo completa este campo si estás físicamente en la zona afectada y puedes ofrecer un punto de recogida. Si estás en otra ciudad, déjalo en blanco.
+          </p>
+          <input type="text" id="don-city-ubicacion" name="ubicacion" placeholder="Dirección o punto de referencia" />
+        </div>
+
+        <div class="donate-field donate-field--collection">
+          <label class="donate-collection-label">
+            <input type="checkbox" name="quiere_centros" id="don-centros-check" value="si" />
+            <span class="donate-collection-text">
+              <span class="donate-collection-title">Quiero saber sobre centros de recogida</span>
+              <span class="donate-collection-desc">Te informaremos de los puntos de entrega más cercanos para que puedas donar desde cualquier lugar.</span>
+            </span>
+          </label>
+        </div>
+
+        <input type="hidden" name="ciudad" id="don-city-id" />
+        <div class="donate-form-actions">
+          <p class="donate-privacy-note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Sus datos se usarán únicamente para coordinar esta donación. Una vez entregada la ayuda, serán eliminados de nuestro sistema.
+          </p>
+          <button type="submit" class="btn-donate-submit">Enviar ofrecimiento</button>
+          <p id="cp-donate-feedback" class="donate-feedback hidden"></p>
+        </div>
+      </form>
     </div>
   </section>
 
   <!-- ── Contenido principal ──────────────────── -->
   <main class="city-main">
+
+    <!-- Presentación + resumen del mes -->
+    <section class="city-section city-section--intro">
+      <p id="cp-bio" class="city-bio-text"></p>
+      <div id="cp-month-summary" class="city-month-summary hidden">
+        <p class="city-month-label"><span id="cp-month-name"></span></p>
+        <p id="cp-description" class="city-intro-text"></p>
+      </div>
+    </section>
 
     <!-- Kit del viajero -->
     <section class="city-section">
@@ -58,6 +146,52 @@
       <ul id="cp-kit" class="city-kit-list"></ul>
     </section>
 
+    <!-- Clima en tiempo real -->
+    <section class="city-section">
+      <div class="city-section-header">
+        <div class="city-section-icon city-section-icon--climate">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/>
+          </svg>
+        </div>
+        <div>
+          <p class="city-section-eyebrow">Meteorología</p>
+          <h2 class="city-section-title">Estado climático actual</h2>
+        </div>
+      </div>
+
+      <p id="cp-weather-loading" class="city-weather-loading">Cargando clima...</p>
+
+      <div id="cp-weather-data" class="city-weather-grid hidden">
+        <div class="weather-stat">
+          <span class="weather-stat-label">Temperatura</span>
+          <span id="cp-temp" class="weather-stat-value">--</span>
+        </div>
+        <div class="weather-stat">
+          <span class="weather-stat-label">Sensación</span>
+          <span id="cp-feels" class="weather-stat-value">--</span>
+        </div>
+        <div class="weather-stat">
+          <span class="weather-stat-label">Precipitación</span>
+          <span id="cp-precip" class="weather-stat-value">--</span>
+        </div>
+        <div class="weather-stat">
+          <span class="weather-stat-label">Viento</span>
+          <span id="cp-wind" class="weather-stat-value">--</span>
+        </div>
+        <div class="weather-stat">
+          <span class="weather-stat-label">Humedad</span>
+          <span id="cp-humidity" class="weather-stat-value">--</span>
+        </div>
+        <div class="weather-stat">
+          <span class="weather-stat-label">Estado</span>
+          <span id="cp-risk-inline" class="weather-stat-value">--</span>
+        </div>
+      </div>
+
+      <p id="cp-weather-error" class="city-weather-error hidden">No se pudo obtener el clima en tiempo real.</p>
+    </section>
+
     <!-- Contactos de emergencia -->
     <section class="city-section">
       <div class="city-section-header">
@@ -73,41 +207,41 @@
       </div>
       <div class="contact-grid contact-grid--city">
         <a id="cp-emergency" class="contact-card contact-emergency" href="tel:112">
-          <span class="contact-label">Emergencias</span>
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span class="contact-service">Emergencias</span>
+          <span class="contact-call-hint">Toca para llamar</span>
           <span id="cp-emergency-num" class="contact-number">112</span>
         </a>
         <a id="cp-police" class="contact-card contact-police" href="tel:091">
-          <span class="contact-label">Polic&iacute;a</span>
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span class="contact-service">Polic&iacute;a</span>
+          <span class="contact-call-hint">Toca para llamar</span>
           <span id="cp-police-num" class="contact-number">091</span>
         </a>
         <a id="cp-fire" class="contact-card contact-fire" href="tel:080">
-          <span class="contact-label">Bomberos</span>
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg>
+          <span class="contact-service">Bomberos</span>
+          <span class="contact-call-hint">Toca para llamar</span>
           <span id="cp-fire-num" class="contact-number">080</span>
         </a>
       </div>
     </section>
 
-    <!-- Clima en tiempo real (nota) -->
-    <section class="city-section city-section--climate">
+    <!-- Reportes de la comunidad -->
+    <section class="city-section city-section--reports">
       <div class="city-section-header">
-        <div class="city-section-icon city-section-icon--climate">
+        <div class="city-section-icon city-section-icon--reports">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26a4.5 4.5 0 105 0z"/>
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
           </svg>
         </div>
         <div>
-          <p class="city-section-eyebrow">Meteorología</p>
-          <h2 class="city-section-title">Estado climático</h2>
+          <p class="city-section-eyebrow">Comunidad</p>
+          <h2 class="city-section-title">Reportes de incidencias <span id="cp-report-count" class="city-report-badge hidden">0</span></h2>
         </div>
       </div>
-      <div class="climate-note">
-        <p>Para ver el clima en tiempo real de este destino, activa el modo <strong>Estado actual</strong> en el mapa interactivo.</p>
-        <a href="../index.html" class="btn-climate-map" id="btn-go-map">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
-          </svg>
-          Ir al mapa
-        </a>
+      <div id="cp-reports-list" class="city-reports-list">
+        <p class="city-reports-empty">No hay reportes para este destino todavía.</p>
       </div>
     </section>
 
@@ -120,13 +254,6 @@
 
   <script type="module" src="../js/city-page.js"></script>
 
-  <script>
-    document.getElementById('btn-go-map')?.addEventListener('click', function (e) {
-      e.preventDefault();
-      sessionStorage.setItem('turisafe-tab', 'explorar');
-      window.location.href = '../index.html';
-    });
-  </script>
 
 </body>
 </html>
