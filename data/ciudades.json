@@ -3,6 +3,7 @@
     {
       "id": "madrid",
       "nombre": "Madrid",
+      "descripcion": "Capital de España y corazón cultural de la Península Ibérica. Madrid es una ciudad de contrastes: museos de talla mundial como el Prado o el Reina Sofía conviven con barrios bulliciosos, terrazas animadas y una gastronomía que va del bocadillo de calamares a la alta cocina. Su clima continental trae veranos secos y calurosos e inviernos fríos con heladas ocasionales en el centro.",
       "lat": 40.4168,
       "lon": -3.7038,
       "telefono_emergencias": "112",
@@ -263,6 +264,7 @@
     {
       "id": "new-york",
       "nombre": "New York",
+      "descripcion": "La ciudad que nunca duerme: una metrópolis global donde conviven culturas de todo el planeta. Desde el skyline de Manhattan y Central Park hasta los barrios de Brooklyn y Queens, Nueva York ofrece una intensidad urbana difícil de igualar. Su clima varía de inviernos nevados a veranos húmedos y calurosos, con tormentas costeras en otoño.",
       "lat": 40.7128,
       "lon": -74.0060,
       "telefono_emergencias": "911",
@@ -545,6 +547,9 @@
     {
       "id": "tokyo",
       "nombre": "Tokyo",
+      "descripcion": "La megaciudad más poblada del mundo fusiona la tradición milenaria japonesa con una modernidad que asombra. Templos centenarios, cocina excepcional, tecnología de vanguardia y una cultura urbana única hacen de Tokio un destino sin parangón. Su ubicación en una zona sísmica activa y su temporada de tifones exigen estar siempre informado.",
+      "demo_status": "ALERTA",
+      "demo_reason": "Tifón activo en la región. Sigue las indicaciones de las autoridades locales y evita desplazamientos no esenciales.",
       "lat": 35.6762,
       "lon": 139.6503,
       "telefono_emergencias": "119",
@@ -833,10 +838,11 @@
     {
       "id": "sidney",
       "nombre": "Sidney",
+      "descripcion": "La ciudad más grande de Australia abraza el océano con una energía relajada y cosmopolita. La Ópera de Sídney, el Harbour Bridge y playas como Bondi son solo la carta de presentación de un destino que combina naturaleza salvaje con una vibrante escena cultural. El verano austral trae calor intenso, incendios forestales y tormentas que requieren atención.",
       "lat": -33.8688,
       "lon": 151.2093,
       "telefono_emergencias": "000",
-      "policia": "000",
+      "policia": "131444",
       "bomberos": "000",
       "meses": {
     "enero": {

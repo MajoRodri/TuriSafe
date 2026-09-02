@@ -121,11 +121,12 @@ header {
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   padding: calc(var(--header-h) + 4rem) 2rem 5rem;
 }
 
-.hero-bg { position: absolute; inset: 0; pointer-events: none; }
+/* overflow moves to hero-bg so deco circles stay clipped but search dropdown can escape */
+.hero-bg { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 
 .deco-circle {
   position: absolute;
@@ -636,6 +637,7 @@ h1.hero-title {
   padding: 0.875rem 1.25rem;
   cursor: pointer;
   font-size: 0.9rem;
+  color: var(--color-text);
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -822,7 +824,7 @@ h1.hero-title {
 
 /* ── Panel body ──────────────────────────────── */
 .panel-body {
-  display: flex;
+  display: none !important;
   flex-direction: column;
   gap: 1.25rem;
   padding: 1.5rem;
@@ -995,6 +997,25 @@ h1.hero-title {
 .btn-ver-mas:hover {
   background: #dc2626;
   transform: translateX(3px);
+}
+
+/* ── Alert simulation button ─────────────────── */
+.btn-alert-sim {
+  background: none;
+  border: 1px solid rgba(239,68,68,0.35);
+  color: #ef4444;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.45rem 1rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  align-self: flex-start;
+}
+
+.btn-alert-sim:hover {
+  background: rgba(239,68,68,0.08);
+  border-color: #ef4444;
 }
 
 /* ── Donation section ────────────────────────── */
@@ -1291,3 +1312,48 @@ fieldset label {
 #tab-explorar #map {
   height: calc(100dvh - var(--header-h) - 90px);
 }
+
+/* ── Map popup card ─────────────────────────── */
+.turisafe-popup .leaflet-popup-content-wrapper {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+  border: none;
+}
+.turisafe-popup .leaflet-popup-content { margin: 0; }
+.turisafe-popup .leaflet-popup-tip-container { display: none; }
+
+.map-popup { width: 240px; }
+
+.map-popup-img {
+  height: 130px;
+  background-size: cover;
+  background-position: center;
+  background-color: #1e293b;
+}
+
+.map-popup-body { padding: 0.75rem 1rem 1rem; }
+
+.map-popup-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.3rem;
+  color: #1e293b;
+}
+
+.map-popup-risks {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin: 0 0 0.65rem;
+  line-height: 1.4;
+}
+
+.map-popup-link {
+  display: inline-block;
+  font-size: 0.78rem;
+  color: #0891b2;
+  font-weight: 600;
+  text-decoration: none;
+}
+.map-popup-link:hover { text-decoration: underline; }

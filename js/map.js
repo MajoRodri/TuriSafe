@@ -1,40 +1,57 @@
-export const MAP_CONFIG = {
+const MAP_CONFIG = {
   zoom: 6,
-  center: [40.0, -3.5]
+  center: [40.0, -3.5],
 };
 
+const CITY_IMAGES = {
+  madrid:    "madrid.jpg",
+  "new-york": "newyork.jpg",
+  tokyo:     "tokyo.jpg",
+  sidney:    "sydney.jpg",
+};
+
+function buildPopup(ciudad) {
+  const img = CITY_IMAGES[ciudad.id] || `${ciudad.id}.jpg`;
+
+  return `
+    <div class="map-popup">
+      <div class="map-popup-img" style="background-image:url('assets/images/${img}')"></div>
+      <div class="map-popup-body">
+        <h3 class="map-popup-name">${ciudad.nombre}</h3>
+        <a class="map-popup-link" href="pages/city.html?id=${ciudad.id}">Ver perfil completo →</a>
+      </div>
+    </div>`;
+}
+
 export function initMap(ciudades, onCitySelect) {
-  // Guard clause: si no hay ciudades, no intentamos construir el mapa con ellas.
   if (!Array.isArray(ciudades) || ciudades.length === 0) {
-    console.error("initMap: 'ciudades' must be a non-empty array.");
+    console.error("[map.js] 'ciudades' debe ser un array no vacío.");
     return null;
   }
 
-  // Crea el mapa de Leaflet sobre el div #map usando la config compartida.
   const map = L.map("map").setView(MAP_CONFIG.center, MAP_CONFIG.zoom);
 
-  // Capa base (el fondo visual). Sin esto el mapa se ve gris/vacío.
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap contributors",
-    maxZoom: 19
+    maxZoom: 19,
   }).addTo(map);
 
-  // Un marcador por ciudad. Este bucle no contiene lógica de riesgo/clima:
-  // map.js solo sabe de geografía y selección, nada más.
   ciudades.forEach((ciudad) => {
     if (typeof ciudad.lat !== "number" || typeof ciudad.lon !== "number") {
-      console.error(`initMap: ciudad "${ciudad.id || "desconocida"}" no tiene lat/lon válidos.`);
+      console.error(`[map.js] La ciudad "${ciudad.id || "desconocida"}" no tiene lat/lon válidos.`);
       return;
     }
 
     const marker = L.marker([ciudad.lat, ciudad.lon]).addTo(map);
-    marker.bindPopup(ciudad.nombre);
 
-    // Al hacer click, el único trabajo de map.js es avisar QUÉ ciudad se eligió.
+    marker.bindPopup(buildPopup(ciudad), {
+      maxWidth: 260,
+      className: "turisafe-popup",
+    });
+
+    marker.on("mouseover", () => marker.openPopup());
     marker.on("click", () => {
-      if (typeof onCitySelect === "function") {
-        onCitySelect(ciudad);
-      }
+      if (typeof onCitySelect === "function") onCitySelect(ciudad);
     });
   });
 
