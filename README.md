@@ -18,7 +18,7 @@ TuriSafe es una aplicación web que ayuda a los viajeros a conocer el estado cli
 Cuando planeas un viaje, TuriSafe te muestra en un solo lugar todo lo que necesitas saber sobre tu destino:
 
 - 🗺️ **Mapa interactivo** con los destinos disponibles y acceso rápido a cada perfil de ciudad
-- 🌤️ **Clima en tiempo real** — temperatura, precipitación, viento y humedad actualizados al momento
+- 🌤️ **Clima en tiempo real** : Temperatura, precipitación, viento y humedad actualizados al momento
 - 📅 **Predicción a 3 días** con nivel de riesgo estimado para cada día
 - 🎒 **Kit del viajero** personalizado según el destino y el mes en que viajes
 - 📞 **Contactos de emergencia** de cada ciudad (emergencias, policía y bomberos)
@@ -163,9 +163,9 @@ Cada ciudad en `ciudades.json` tiene:
 - **Datos básicos:** nombre, id, coordenadas (latitud y longitud), descripción
 - **Teléfonos de emergencia:** emergencias, policía, bomberos
 - **Datos mensuales (12 meses):** para cada mes del año se definen:
-  - `riesgos` — lista de riesgos típicos de ese mes (ej: "Frío", "Lluvias intensas")
-  - `recomendaciones` — consejos de seguridad y preparación
-  - `kit` — lista de objetos que se recomienda llevar
+  - `riesgos` Lista de riesgos típicos de ese mes (ej: "Frío", "Lluvias intensas")
+  - `recomendaciones` Consejos de seguridad y preparación
+  - `kit` Lista de objetos que se recomienda llevar
 
 Esta información es estática y fue elaborada manualmente por el equipo para cada combinación ciudad-mes.
 
@@ -177,12 +177,12 @@ Esta información es estática y fue elaborada manualmente por el equipo para ca
 
 > ⚠️ El archivo `index.html` **no puede abrirse directamente con doble clic**. El navegador bloquea las peticiones de datos (clima, ciudades) por seguridad cuando el archivo se abre desde el sistema de archivos. Es necesario usar un servidor local.
 
-**Opción 1 — VS Code con Live Server (recomendado):**
+**Opción 1 → VS Code con Live Server (recomendado):**
 1. Instala la extensión **Live Server** en VS Code
 2. Clic derecho sobre `index.html` → **Open with Live Server**
 3. Se abrirá automáticamente en `http://127.0.0.1:5500`
 
-**Opción 2 — Python:**
+**Opción 2 → Python:**
 ```bash
 python -m http.server 8000
 ```

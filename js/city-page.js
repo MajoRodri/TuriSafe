@@ -38,10 +38,16 @@ const KIT_ICONS = [
 const KIT_ICON_DEFAULT = `<rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>`;
 
 const TYPE_LABELS = {
-  carretera_cortada: "Carretera cortada",
-  fuente_sin_agua:   "Fuente sin agua",
-  inundacion_leve:   "Inundación leve",
-  otro:              "Otro",
+  carretera_cortada:      "Carretera cortada",
+  fuente_sin_agua:        "Fuente sin agua",
+  inundacion_leve:        "Inundación leve",
+  transporte_interrumpido:"Transporte público interrumpido",
+  accidente_via:          "Accidente u obstáculo en la vía",
+  incendio_humo:          "Incendio o humo",
+  caida_arboles:          "Caída de árboles",
+  aglomeracion:           "Aglomeración, manifestación o disturbio",
+  acceso_cerrado:         "Atracción, playa o acceso cerrado",
+  otro:                   "Otro",
 };
 
 function kitIcon(item) {
@@ -76,6 +82,21 @@ if (!city) {
   renderCity(city);
   fetchWeather(city);
   renderReports(city.id);
+  prefillReportCity(city);
+}
+
+function prefillReportCity(ciudad) {
+  const select = document.getElementById("report-city-select");
+  const fieldGroup = document.getElementById("report-city-field");
+  if (!select) return;
+
+  const opt = document.createElement("option");
+  opt.value = ciudad.id;
+  opt.textContent = ciudad.nombre;
+  select.appendChild(opt);
+  select.value = ciudad.id;
+
+  if (fieldGroup) fieldGroup.style.display = "none";
 }
 
 function renderCity(ciudad) {
@@ -266,6 +287,12 @@ function initDonateForm(cityName) {
     btn.textContent = formWrap?.classList.contains("hidden") ? "Donar ahora" : "Cerrar formulario";
   });
 
+  const textarea = document.getElementById("don-city-descripcion");
+  const counter  = document.getElementById("don-desc-count");
+  textarea?.addEventListener("input", () => {
+    if (counter) counter.textContent = textarea.value.length;
+  });
+
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -274,6 +301,7 @@ function initDonateForm(cityName) {
     const categorias    = [...form.querySelectorAll("input[name='categorias']:checked")].map(c => c.value);
     const ubicacion     = form.ubicacion.value.trim();
     const quiereCentros = form.quiere_centros?.checked ?? false;
+    const descripcion   = form.descripcion?.value.trim() || "";
 
     if (!nombre) {
       showDonateError(feedback, "El nombre es obligatorio."); return;
@@ -298,6 +326,7 @@ function initDonateForm(cityName) {
       categorias,
       ubicacion:      ubicacion || "—",
       quiere_centros: quiereCentros ? "Sí" : "No",
+      descripcion:    descripcion || "—",
       ciudad:         cityName,
     };
 
@@ -309,13 +338,35 @@ function initDonateForm(cityName) {
       });
       if (!res.ok) throw new Error();
       form.reset();
-      if (feedback) { feedback.textContent = "¡Gracias! Tu ofrecimiento ha sido registrado."; feedback.classList.remove("hidden", "donate-feedback--error"); }
+      showToast("¡Gracias! Tu ofrecimiento ha sido registrado. Nos pondremos en contacto contigo pronto.");
       if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "Enviar ofrecimiento"; }
     } catch {
       if (feedback) { feedback.textContent = "No se pudo enviar. Inténtalo de nuevo."; feedback.classList.remove("hidden"); feedback.classList.add("donate-feedback--error"); }
       if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "Enviar ofrecimiento"; }
     }
   });
+}
+
+function showToast(message) {
+  const existing = document.getElementById("ts-toast");
+  if (existing) existing.remove();
+
+  const toast = document.createElement("div");
+  toast.id = "ts-toast";
+  toast.setAttribute("role", "status");
+  toast.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+    </svg>
+    <span>${message}</span>`;
+  document.body.appendChild(toast);
+
+  requestAnimationFrame(() => toast.classList.add("ts-toast--visible"));
+
+  setTimeout(() => {
+    toast.classList.remove("ts-toast--visible");
+    toast.addEventListener("transitionend", () => toast.remove(), { once: true });
+  }, 4000);
 }
 
 function setText(id, value) {

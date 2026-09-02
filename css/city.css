@@ -405,8 +405,41 @@ body.city-page { background: var(--color-surface); }
   transition: border-color 0.15s;
 }
 
-.donate-field input::placeholder { color: rgba(255,255,255,0.4); }
-.donate-field input:focus { border-color: rgba(255,255,255,0.6); }
+.donate-field input::placeholder,
+.donate-field textarea::placeholder { color: rgba(255,255,255,0.4); }
+.donate-field input:focus,
+.donate-field textarea:focus { border-color: rgba(255,255,255,0.6); }
+
+.donate-field textarea {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.875rem;
+  color: #fff;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.15s;
+}
+
+.donate-field-optional {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-left: auto;
+}
+
+.donate-char-count {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.45);
+  text-align: right;
+  margin-top: 0.2rem;
+  display: block;
+}
 
 .donate-checks {
   display: flex;
@@ -744,6 +777,42 @@ body.city-page { background: var(--color-surface); }
 /* ── Reports section ─────────────────────────── */
 .city-section-icon--reports { background: linear-gradient(135deg, #7c3aed, #a855f7); color: #fff; }
 
+.city-page .city-section--reports .city-section-header {
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.city-reports-header-text { flex: 1; }
+
+/* Override del botón flotante de index.html para que sea inline aquí */
+.city-page #report-button {
+  position: static;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.55rem 1rem;
+  box-shadow: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+  transform: none;
+}
+
+.city-page #report-button:hover {
+  transform: none;
+  opacity: 0.88;
+}
+
+.city-page #report-button svg {
+  width: 15px;
+  height: 15px;
+}
+
 .city-report-badge {
   display: inline-flex;
   align-items: center;
@@ -803,6 +872,42 @@ body.city-page { background: var(--color-surface); }
   color: var(--color-muted);
   margin: 0;
   line-height: 1.5;
+}
+
+/* ── Toast de éxito ──────────────────────────── */
+#ts-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  background: #fff;
+  color: #166534;
+  border: 1.5px solid #bbf7d0;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  max-width: min(420px, calc(100vw - 2rem));
+  z-index: 9999;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.35s ease;
+  opacity: 0;
+  line-height: 1.4;
+}
+
+#ts-toast svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: #16a34a;
+}
+
+#ts-toast.ts-toast--visible {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
 }
 
 /* ── Footer ──────────────────────────────────── */
