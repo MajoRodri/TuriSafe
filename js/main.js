@@ -216,7 +216,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       );
 
       if (!matches.length) {
-        searchResults.classList.add("hidden");
+        searchResults.innerHTML = `<li class="search-no-results">
+          <svg class="search-no-results-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="28" r="18" stroke="currentColor" stroke-width="3" stroke-dasharray="5 3"/>
+            <path d="M32 16 C32 16 24 24 24 30 C24 34.4 27.6 38 32 38 C36.4 38 40 34.4 40 30 C40 24 32 16 32 16Z" fill="currentColor" opacity="0.15" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <circle cx="32" cy="30" r="3" fill="currentColor"/>
+            <path d="M32 41 L32 50" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M26 50 Q32 54 38 50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <circle cx="20" cy="14" r="2" fill="currentColor" opacity="0.4"/>
+            <circle cx="46" cy="18" r="1.5" fill="currentColor" opacity="0.3"/>
+            <circle cx="14" cy="32" r="1.5" fill="currentColor" opacity="0.3"/>
+            <path d="M43 12 L44 10 L45 12 L47 13 L45 14 L44 16 L43 14 L41 13 Z" fill="currentColor" opacity="0.5"/>
+          </svg>
+          <strong>Esta localización no está disponible todavía</strong>
+          Tomamos nota para una futura mejora de la aplicación.
+        </li>`;
+        searchResults.classList.remove("hidden");
         return;
       }
 
