@@ -5,7 +5,7 @@
  * @returns {Promise<Object>} Datos limpios: temperatura, precipitación, viento, etc.
  */
 export async function getWeather(lat, lon) {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,showers,snowfall,weather_code,cloud_cover,pressure_msl,surface_pressure,wind_speed_10m,wind_direction_10m,wind_gusts_10m&hourly=precipitation_probability&timezone=auto`;
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,rain,showers,snowfall,weather_code,cloud_cover,pressure_msl,surface_pressure,wind_speed_10m,wind_direction_10m,wind_gusts_10m&hourly=precipitation_probability&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,wind_speed_10m_max,weather_code&forecast_days=4&timezone=auto`;
 
     try {
         const response = await fetch(url);
@@ -16,9 +16,18 @@ export async function getWeather(lat, lon) {
 
         const data = await response.json();
 
-        // Extraemos los datos actuales y la probabilidad de precipitación (la primera hora del array)
         const current = data.current;
         const probPrecipitation = data.hourly?.precipitation_probability?.[0] || 0;
+
+        const daily = data.daily;
+        const forecast = daily?.time?.slice(1, 4).map((date, i) => ({
+            date,
+            tempMax:       daily.temperature_2m_max[i + 1],
+            tempMin:       daily.temperature_2m_min[i + 1],
+            precipitation: daily.precipitation_sum[i + 1],
+            wind:          daily.wind_speed_10m_max[i + 1],
+            weatherCode:   daily.weather_code[i + 1],
+        })) ?? [];
 
         return {
             temperature: current.temperature_2m,
@@ -31,6 +40,7 @@ export async function getWeather(lat, lon) {
             humidity: current.relative_humidity_2m,
             isDay: current.is_day,
             timestamp: current.time,
+            forecast,
             units: {
                 temp: data.current_units.temperature_2m,
                 wind: data.current_units.wind_speed_10m,

@@ -151,13 +151,48 @@ async function fetchWeather(ciudad) {
     const riskEl = document.getElementById("cp-risk-inline");
     if (riskEl) riskEl.className = `weather-stat-value status-text-${risk.status.toLowerCase()}`;
 
+    const todayEl = document.getElementById("cp-weather-today");
+    if (todayEl) {
+      todayEl.textContent = `Hoy · ${DAY_NAMES[new Date().getDay()]}`;
+      todayEl.classList.remove("hidden");
+    }
+
     if (loadingEl) loadingEl.classList.add("hidden");
     if (dataEl)    dataEl.classList.remove("hidden");
+
+    if (weather.forecast?.length) renderForecast(weather.forecast);
   } catch (err) {
     console.error("[city-page.js] Error al obtener el clima:", err);
     if (loadingEl) loadingEl.classList.add("hidden");
     if (errorEl)   errorEl.classList.remove("hidden");
   }
+}
+
+const DAY_NAMES = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+const RAIN_SVG  = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 16.58A5 5 0 0018 7h-1.26A8 8 0 104 15.25"/><line x1="8" y1="19" x2="8" y2="21"/><line x1="8" y1="13" x2="8" y2="15"/><line x1="16" y1="19" x2="16" y2="21"/><line x1="16" y1="13" x2="16" y2="15"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="12" y1="15" x2="12" y2="17"/></svg>`;
+const WIND_SVG  = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.59 4.59A2 2 0 1111 8H2m10.59 11.41A2 2 0 1014 16H2m15.73-8.27A2.5 2.5 0 1119.5 12H2"/></svg>`;
+
+function renderForecast(days) {
+  const container = document.getElementById("cp-forecast");
+  const listEl    = document.getElementById("cp-forecast-list");
+  if (!container || !listEl || !days.length) return;
+
+  listEl.innerHTML = days.map((day, i) => {
+    const risk  = calculateRisk({ wind: day.wind, precipitation: day.precipitation });
+    const date  = new Date(`${day.date}T12:00:00`);
+    const label = DAY_NAMES[date.getDay()];
+
+    return `
+      <div class="city-forecast-day">
+        <span class="forecast-day-label">${label}</span>
+        <span class="forecast-day-temp">${Math.round(day.tempMax)}° / ${Math.round(day.tempMin)}°</span>
+        <span class="forecast-day-stat">${RAIN_SVG}${day.precipitation} mm</span>
+        <span class="forecast-day-stat forecast-day-stat--wind">${WIND_SVG}${Math.round(day.wind)} km/h</span>
+        <span class="forecast-day-risk status-text-${risk.status.toLowerCase()}">${risk.status}</span>
+      </div>`;
+  }).join("");
+
+  container.classList.remove("hidden");
 }
 
 function renderReports(cityId) {
