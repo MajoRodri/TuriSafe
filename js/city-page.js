@@ -1,4 +1,17 @@
-import { cities } from '../data/cities.js';
+// Load cities from ciudades.json
+let cities = {};
+
+try {
+  const response = await fetch('../data/ciudades.json');
+  const data = await response.json();
+  cities = data.ciudades.reduce((acc, ciudad) => {
+    acc[ciudad.id] = ciudad;
+    return acc;
+  }, {});
+} catch (error) {
+  console.error('Error loading cities:', error);
+  window.location.href = 'index.html';
+}
 
 const params = new URLSearchParams(window.location.search);
 const id     = params.get('id');

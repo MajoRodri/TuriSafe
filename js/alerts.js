@@ -47,56 +47,40 @@ export function showAlert(message = DEFAULT_MESSAGE) {
     detail: { delay: ALERT_DELAY_MS, simulated: true },
   }));
 
-  return true;
+export function showAlert(message) {
+  const banner = document.getElementById('alert-banner');
+  if (!banner) return;
+  
+  // Set message text
+  banner.textContent = message;
+  
+  // Remove hidden class to show banner
+  banner.classList.remove('hidden');
+  
+  // Clear any pending timer
+  if (alertTimer) clearTimeout(alertTimer);
+  
+  // Auto-hide after 10 seconds
+  alertTimer = setTimeout(() => {
+    banner.classList.add('hidden');
+    alertTimer = null;
+  }, 10000);
 }
 
 /**
  * Cancela una simulacion pendiente y oculta el banner visible.
  */
 export function hideAlert() {
-  if (alertTimer !== null) {
-    window.clearTimeout(alertTimer);
+  const banner = document.getElementById('alert-banner');
+  
+  // Clear pending timer
+  if (alertTimer) {
+    clearTimeout(alertTimer);
     alertTimer = null;
   }
-
-  const banner = getBanner();
+  
+  // Hide banner
   if (banner) {
-    banner.classList.add("hidden");
+    banner.classList.add('hidden');
   }
-}
-
-/**
- * Conecta un boton de simulacion sin acoplar este modulo al calculo de riesgo.
- * P3 puede usar id="alert-simulation-button" o data-alert-simulation en el HTML.
- * La inicializacion es idempotente para que main.js pueda llamarla con seguridad.
- *
- * @param {HTMLElement|null} [trigger]
- * @returns {boolean}
- */
-export function initAlerts(trigger = null) {
-  const simulationTrigger = trigger
-    || document.getElementById("alert-simulation-button")
-    || document.querySelector("[data-alert-simulation]");
-
-  if (!simulationTrigger) return false;
-  if (boundTrigger === simulationTrigger) return true;
-
-  if (boundTrigger) {
-    boundTrigger.removeEventListener("click", handleSimulationClick);
-  }
-
-  simulationTrigger.addEventListener("click", handleSimulationClick);
-  boundTrigger = simulationTrigger;
-  return true;
-}
-
-function handleSimulationClick(event) {
-  const message = event.currentTarget.dataset.alertMessage || DEFAULT_MESSAGE;
-  showAlert(message);
-}
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => initAlerts(), { once: true });
-} else {
-  initAlerts();
 }
