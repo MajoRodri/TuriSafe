@@ -384,6 +384,10 @@
         var btn = e.target.closest('[data-tab]');
         if (btn && btn.dataset.tab) activateTab(btn.dataset.tab);
       });
+
+      // Activar tab desde hash en la URL (ej. index.html#explorar)
+      var hash = window.location.hash.replace('#', '');
+      if (hash) activateTab(hash);
     })();
 
     // Animación fade-in al hacer scroll con IntersectionObserver
